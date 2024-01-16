@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "CamptonBookLight";
+    src: url("./assets/fonts/CamptonLight.otf") format("opentype");
+  }
+  @font-face {
+    font-family: "CamptonBook";
+    src: url("./assets/fonts/CamptonBook.otf") format("opentype");
+  }
+}
