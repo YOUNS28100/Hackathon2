@@ -5,19 +5,6 @@ const express = require("express");
 
 const app = express();
 
-app.use(express.json());
-
-const itemControllers = require("./controllers/itemControllers");
-
-app.get("/api/color", itemControllers.getColor);
-app.get("/api/color/:id", itemControllers.getColorById);
-app.post("/api/color", itemControllers.postColor);
-// put
-app.put("/api/color/:id", itemControllers.updateColor);
-// delete
-app.delete("/api/color/:id", itemControllers.deleteColor);
-module.exports = app;
-
 // Configure it
 
 /* ************************************************************************* */
@@ -39,7 +26,6 @@ module.exports = app;
 // 4. Be sure to only have URLs in the array with domains from which you want to allow requests.
 // For example: ["http://mysite.com", "http://another-domain.com"]
 
-/*
 const cors = require("cors");
 
 app.use(
@@ -48,10 +34,9 @@ app.use(
       process.env.FRONTEND_URL, // keep this one, after checking the value in `backend/.env`
       "http://mysite.com",
       "http://another-domain.com",
-    ]
+    ],
   })
 );
-*/
 
 /* ************************************************************************* */
 
@@ -68,7 +53,7 @@ app.use(
 
 // Uncomment one or more of these options depending on the format of the data sent by your client:
 
-// app.use(express.json());
+app.use(express.json());
 // app.use(express.urlencoded());
 // app.use(express.text());
 // app.use(express.raw());
@@ -140,7 +125,6 @@ app.get("*", (req, res) => {
 // Middleware for Error Logging (Uncomment to enable)
 // Important: Error-handling middleware should be defined last, after other app.use() and routes calls.
 
-/*
 // Define a middleware function to log errors
 const logErrors = (err, req, res, next) => {
   // Log the error to the console for debugging purposes
@@ -153,7 +137,6 @@ const logErrors = (err, req, res, next) => {
 
 // Mount the logErrors middleware globally
 app.use(logErrors);
-*/
 
 /* ************************************************************************* */
 

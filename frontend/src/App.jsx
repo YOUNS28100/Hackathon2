@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import NavBar from "./components/Navbar";
-import Footer from "./components/Footer";
+import NavBar from "./components/navigation/Navbar";
+import Footer from "./components/navigation/Footer";
 import "./tailwind.css";
 
 function App() {
   return (
-    <div className="bg-responsivecity lg:bg-city bg-contain ">
+    <div className="font-cbnormal">
       <NavBar />
       <Outlet />
       <Footer />
