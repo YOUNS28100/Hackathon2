@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/dragoti.png";
+import logoWhite from "../../assets/logo-white.png";
 
 export default function Navbar() {
   // remplir ce tableau pour compléter la navbar (le 1er est un exemple)
@@ -17,10 +17,10 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="text-4xl bg-slate-500 flex flex-row justify-around items-center p-4">
+    <nav className="text-4xl bg-mineShaft flex flex-row justify-around items-center p-4">
       {/* pour le logo */}
       <NavLink to="/">
-        <img src={logo} alt="logo" className="h-24" />
+        <img src={logoWhite} alt="logo" className="h-16" />
       </NavLink>
 
       <h1>Le Nom du fabuleux Projet</h1>

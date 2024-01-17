@@ -1,83 +1,42 @@
-
-CREATE TABLE category
-(
-  id       INT     NOT NULL,
-  cat_name VARCHAR NOT NULL,
-  id       INT     NOT NULL,
-  PRIMARY KEY (id)
+CREATE TABLE skin (
+    id int unsigned primary key auto_increment not null,
+    type VARCHAR(150) NOT NULL
 );
 
-CREATE TABLE Product
-(
-  id            INT     NOT NULL,
-  name          VARCHAR NOT NULL,
-  prod_categ_id INT     NOT NULL,
-  price         FLOAT   NOT NULL,
-  img           VARCHAR NOT NULL,
-  link          VARCHAR NOT NULL,
-  id            INT     NOT NULL,
-  cat_id        INT     NOT NULL,
-  sub_cat_1     INT     NOT NULL,
-  sub_cat_2     INT     NULL    ,
-  sub_cat_3     INT     NULL    ,
-  skin_type_1   INT     NOT NULL,
-  skin_type_2   INT     NULL    ,
-  id            INT     NOT NULL,
-                        NOT NULL,z
-  PRIMARY KEY (id)
+CREATE TABLE user (
+  id int unsigned primary key auto_increment not null,
+  firstname VARCHAR(255) NOT NULL,
+  lastname VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  age INT NOT NULL,
+  city VARCHAR(255) NOT NULL,
+  lat VARCHAR(255),
+  long VARCHAR(255),
+  skin_id_1 INT NOT NULL,
+  skin_id_2 INT,
+  skin_id_3 INT
 );
 
-CREATE TABLE skin
-(
-  id   INT     NOT NULL,
-  type VARCHAR NOT NULL,
-  id   INT     NOT NULL,
-  PRIMARY KEY (id)
+create table category (
+  id int unsigned primary key auto_increment not null,
+  name VARCHAR(255) NOT NULL
 );
-
-CREATE TABLE sub_categ
-(
-  id           INT NULL    ,
-  sub_cat_name INT NULL    ,
-                   NULL    ,
-  PRIMARY KEY ()
+create table sub_category (
+  id int unsigned primary key auto_increment not null,
+  name VARCHAR(255) NOT NULL
 );
-
-CREATE TABLE user
-(
-  id         INT     NOT NULL,
-  first_name VARCHAR NOT NULL,
-  last_name  VARCHAR NULL    ,
-  email      VARCHAR NOT NULL COMMENT 'UNIQUE',
-  password   VARCHAR NOT NULL,
-  city       VARCHAR NOT NULL,
-  lat                NULL    ,
-  long               NULL    ,
-  age                NOT NULL,
-  id         INT     NOT NULL,
-  skin_id_1  INT     NOT NULL COMMENT 'FOREIGN KEY',
-  skin_id_2  INT     NULL    ,
-  skin_id_3  INT     NULL    ,
-  id         INT     NOT NULL,
-  PRIMARY KEY (id)
+create table product (
+  id int unsigned primary key auto_increment not null,
+  name VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  price FLOAT NOT NULL,
+  image VARCHAR(255) NOT NULL,
+  product_url VARCHAR(255) NOT NULL,
+  category_id INT NOT NULL,
+  sub_cat_1 INT NOT NULL,
+  sub_cat_2 INT,
+  sub_cat_3 INT,
+  skin_type_1 INT NOT NULL,
+  skin_type_2 INT
 );
-
-ALTER TABLE user
-  ADD CONSTRAINT FK_skin_TO_user
-    FOREIGN KEY (id)
-    REFERENCES skin (id);
-
-ALTER TABLE category
-  ADD CONSTRAINT FK_Product_TO_category
-    FOREIGN KEY (id)
-    REFERENCES Product (id);
-
-ALTER TABLE Product
-  ADD CONSTRAINT FK_skin_TO_Product
-    FOREIGN KEY (id)
-    REFERENCES skin (id);
-
-ALTER TABLE Product
-  ADD CONSTRAINT FK_sub_categ_TO_Product
-    FOREIGN KEY ()
-    REFERENCES sub_categ ();

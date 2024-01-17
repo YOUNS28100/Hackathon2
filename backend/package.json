@@ -5,7 +5,8 @@
     "db:seed": "node seed.js",
     "build": "node migrate.js",
     "start": "node index.js",
-    "test": "jest"
+    "test": "jest",
+    "crud:maker": "node ./node_modules/wild-js-crud/index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
