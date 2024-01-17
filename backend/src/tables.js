@@ -17,9 +17,6 @@ const managers = [
   ProductManager,
   SkinManager,
   UserManager,
-  UserManager,
-  UserManager,
-  UserManager,
   ItemManager,
   // Add other managers here
 ];
