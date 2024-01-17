@@ -35,6 +35,8 @@ export default function UserInformation() {
     { id: 2, visible: false },
     { id: 3, visible: false },
     { id: 4, visible: false },
+    { id: 5, visible: false },
+    { id: 6, visible: false },
   ];
 
   const [visible, setVisible] = useState(visibleArray);
@@ -84,33 +86,35 @@ export default function UserInformation() {
   );
 
   return (
-    <div className="flex flex-col rounded-2xl m-4 p-4 w-fit">
+    <div className="border-4 border-solid flex flex-col rounded-2xl m-4 p-4 w-fit">
+      <h1 className="font-CamptonBook text-3xl font-bold mb-6">
+        Account option & registration
+      </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2">
         {visible.find((v) => v.id === 1 && v.visible) ? (
           <div className="firstname">
-            <div className="flex flex-row items-center gap-2 w-fit text-black">
+            <div className="flex flex-row items-center gap-2 w-fit text-black ">
               <input
-                className="rounded-md pl-2"
+                className="rounded-md pl-2 border border-solid m-2"
                 type="text"
                 name="firstname"
                 required
                 {...register("firstname", {
-                  required: "Ce champs est obligatoire",
+                  required: "this field is required",
                   minLength: {
                     value: 2,
-                    message:
-                      "Votre prénom doit contenir au minimum 2 caractères",
+                    message: "Your name must contain at least 2 characters",
                   },
                   pattern: {
                     value: /[A-Za-z]+$/,
-                    message: "Votre prénom ne doit contenir que des lettres",
+                    message: "Your name must only contain letters",
                   },
                 })}
               />
               <button
                 type="button"
                 onClick={() => {
-                  handleCancelForm(2);
+                  handleCancelForm(1);
                   resetField("firstname");
                 }}
               >
@@ -125,8 +129,8 @@ export default function UserInformation() {
           </div>
         ) : (
           <div className="flex flex-row gap-2">
-            <p className="text-2xl my-2">Prénom : {updatedData.firstname}</p>
-            <button type="button" onClick={() => handleFormVisible(2)}>
+            <p className="text-l my-2">Firstname : {updatedData.firstname}</p>
+            <button type="button" onClick={() => handleFormVisible(1)}>
               <img src={edit} alt="crayon" className="w-6" />
             </button>
           </div>
@@ -135,26 +139,26 @@ export default function UserInformation() {
           <div className="">
             <div className="flex flex-row items-center gap-2 w-fit text-black">
               <input
-                className="rounded-md pl-2"
+                className="rounded-md pl-2 border border-solid m-2"
                 type="text"
                 name="lastname"
                 required
                 {...register("lastname", {
-                  required: "Ce champs est obligatoire",
+                  required: "This field is required",
                   minLength: {
                     value: 2,
-                    message: "Votre nom doit contenir au minimum 2 caractères",
+                    message: "Your lastname must contain at least 2 characters",
                   },
                   pattern: {
                     value: /[A-Za-z]+$/,
-                    message: "Votre nom ne doit contenir que des lettres",
+                    message: "Your lastname must only contain letters",
                   },
                 })}
               />
               <button
                 type="button"
                 onClick={() => {
-                  handleCancelForm(3);
+                  handleCancelForm(2);
                   resetField("lastname");
                 }}
               >
@@ -169,26 +173,74 @@ export default function UserInformation() {
           </div>
         ) : (
           <div className="flex flex-row gap-2">
-            <p className="text-2xl my-2">Nom : {updatedData.lastname}</p>
+            <p className="text-l my-2">Lastname : {updatedData.lastname}</p>
+            <button type="button" onClick={() => handleFormVisible(2)}>
+              <img src={edit} alt="crayon" className="w-6" />
+            </button>
+          </div>
+        )}
+
+        {visible.find((v) => v.id === 3 && v.visible) ? (
+          <div className="age">
+            <div className="flex flex-row items-center gap-2 w-fit text-black">
+              <input
+                className="rounded-md pl-2 border border-solid m-2"
+                type="text"
+                name="age"
+                required
+                {...register("age", {
+                  required: "This field is required",
+                  minLength: {
+                    value: 1,
+                  },
+                  pattern: {
+                    value: /^[0-9]+$/,
+                    message: "Please enter a valid age with numbers only",
+                  },
+                })}
+              />
+              <button
+                type="button"
+                onClick={() => {
+                  handleCancelForm(3);
+                  resetField("age");
+                }}
+              >
+                <img src={cancel} alt="bouton annuler" className="w-6" />
+              </button>
+            </div>
+            {errors.age && (
+              <p role="alert" className="bg-red-600 text-beige text-sm p-0.5">
+                {errors.age?.message}
+              </p>
+            )}
+          </div>
+        ) : (
+          <div className="flex flex-row gap-2">
+            <p className="text-l my-2">Age : {updatedData.age}</p>
             <button type="button" onClick={() => handleFormVisible(3)}>
               <img src={edit} alt="crayon" className="w-6" />
             </button>
           </div>
         )}
-        {visible.find((v) => v.id === 3 && v.visible) ? (
-          <div className="email">
+
+        {visible.find((v) => v.id === 4 && v.visible) ? (
+          <div className="city">
             <div className="flex flex-row items-center gap-2 w-fit text-black">
               <input
-                className="rounded-md pl-2"
-                type="email"
-                name="email"
+                className="rounded-md pl-2 border border-solid m-2"
+                type="text"
+                name="city"
                 required
-                {...register("mail", {
-                  required: "Ce champs est obligatoire",
+                {...register("city", {
+                  required: "This field is required",
+                  minLength: {
+                    value: 2,
+                    message: "Your city must contain at least 2 characters",
+                  },
                   pattern: {
-                    value: /\b[\w.-]+@[\w.-]+\.\w{2,4}\b/,
-                    message:
-                      "Votre email n'a pas la bonne syntaxe, ex: johndoe@doe.fr",
+                    value: /[A-Za-z]+$/,
+                    message: "Your city must only contain letters",
                   },
                 })}
               />
@@ -196,6 +248,48 @@ export default function UserInformation() {
                 type="button"
                 onClick={() => {
                   handleCancelForm(4);
+                  resetField("city");
+                }}
+              >
+                <img src={cancel} alt="bouton annuler" className="w-6" />
+              </button>
+            </div>
+            {errors.city && (
+              <p role="alert" className="bg-red-600 text-beige text-sm p-0.5">
+                {errors.city?.message}
+              </p>
+            )}
+          </div>
+        ) : (
+          <div className="flex flex-row gap-2">
+            <p className="text-l my-2">City : {updatedData.city}</p>
+            <button type="button" onClick={() => handleFormVisible(4)}>
+              <img src={edit} alt="crayon" className="w-6" />
+            </button>
+          </div>
+        )}
+
+        {visible.find((v) => v.id === 5 && v.visible) ? (
+          <div className="email">
+            <div className="flex flex-row items-center gap-2 w-fit text-black">
+              <input
+                className="rounded-md pl-2 border border-solid m-2"
+                type="email"
+                name="email"
+                required
+                {...register("mail", {
+                  required: "This field is required",
+                  pattern: {
+                    value: /\b[\w.-]+@[\w.-]+\.\w{2,4}\b/,
+                    message:
+                      "Your email does not have the correct syntax, ex: johndoe@doe.fr",
+                  },
+                })}
+              />
+              <button
+                type="button"
+                onClick={() => {
+                  handleCancelForm(5);
                   resetField("mail");
                 }}
               >
@@ -210,57 +304,56 @@ export default function UserInformation() {
           </div>
         ) : (
           <div className="flex flex-row gap-2">
-            <p className="text-2xl my-2">E-mail : {updatedData.mail}</p>
-            <button type="button" onClick={() => handleFormVisible(4)}>
+            <p className="text-l my-2">E-mail : {updatedData.mail}</p>
+            <button type="button" onClick={() => handleFormVisible(5)}>
               <img src={edit} alt="crayon" className="w-6" />
             </button>
           </div>
         )}
 
-        {visible.find((v) => v.id === 4 && v.visible) ? (
+        {visible.find((v) => v.id === 6 && v.visible) ? (
           <>
             <div className="flex flex-row gap-4 items-end mt-2 text-black">
               <div className="flex flex-col gap-2">
                 <input
-                  className="rounded-md pl-2"
+                  className="rounded-md pl-2 border border-solid m-2"
                   type="password"
-                  placeholder="Nouveau mot de passe:"
+                  placeholder="New password:"
                   name="new-password"
                   required
                   {...register("newPassword", {
-                    required: "Ce champs est obligatoire",
+                    required: "This field is required",
                     pattern: {
                       value:
                         /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
                       message:
-                        "Votre mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un nombre et un caractère spécial",
+                        "Your password must contain at least 8 characters, an uppercase letter, a lowercase letter, a number and a special character",
                     },
                   })}
                 />
                 {errors.password && (
                   <p
                     role="alert"
-                    className="bg-red-600 text-beige text-sm p-0.5"
+                    className="bg-red-600 text-beige text-l p-0.5"
                   >
                     {errors.password?.message}
                   </p>
                 )}
                 <input
-                  className="rounded-md pl-2"
+                  className="rounded-md pl-2 border border-solid m-2"
                   type="password"
-                  placeholder="Confirmer mot de passe:"
+                  placeholder="Confirm password:"
                   name="confirm-password"
                   {...register("confirmPassword", {
-                    required: "Vous devez confirmer votre mot de passe",
+                    required: "You must confirm your password",
                     validate: (value) =>
-                      value === watch("password") ||
-                      "Mots de passe non identiques",
+                      value === watch("password") || "Non-identical passwords",
                   })}
                 />
                 {errors.confirmPassword && (
                   <p
                     role="alert"
-                    className="bg-red-600 text-beige text-sm p-0.5"
+                    className="bg-red-600 text-beige text-l p-0.5"
                   >
                     {errors.confirmPassword?.message}
                   </p>
@@ -269,7 +362,7 @@ export default function UserInformation() {
               <button
                 type="button"
                 onClick={() => {
-                  handleCancelForm(8);
+                  handleCancelForm(6);
                   resetField("newPassword");
                   resetField("confirmPassword");
                 }}
@@ -278,14 +371,14 @@ export default function UserInformation() {
               </button>
             </div>
             <p>
-              Le mot de passe doit contenir au moins 8 caractères dont une
-              majuscule, une minuscule, une chiffre et un caractère spécial
+              The password must contain at least 8 characters, one of which
+              uppercase, lowercase, number and special character
             </p>
           </>
         ) : (
           <div className="flex flex-row gap-2">
-            <p className="text-2xl my-2">Modifier mot de passe</p>
-            <button type="button" onClick={() => handleFormVisible(8)}>
+            <p className="text-l my-2">Change passwords</p>
+            <button type="button" onClick={() => handleFormVisible(6)}>
               <img src={edit} alt="crayon" className="w-6" id="8" />
             </button>
           </div>
@@ -294,22 +387,20 @@ export default function UserInformation() {
         <div className="flex flex-col items-center gap-2">
           {inputsValidated ? (
             <>
-              <p>
-                Entrer votre mot de passe actuel pour valider les changements
-              </p>
+              <p>Enter your current password to validate the changes</p>
               <input
-                className="text-black"
+                className="text-black border-4 border-solid m-2"
                 type="password"
                 name="validate-password"
                 {...register("password", {
-                  required: "Ce champs est obligatoire",
+                  required: "this field is required",
                 })}
               />
               <button
                 type="submit"
-                className="border-green border-2 rounded-md w-fit p-1"
+                className="border-black border-2 bg-black text-white w-fit p-3 pl-7 pr-7"
               >
-                Valider les changements
+                Validate the changes
               </button>
             </>
           ) : (
@@ -318,9 +409,9 @@ export default function UserInformation() {
               onClick={() => {
                 setInputsValidated(true);
               }}
-              className="border-green border-2 rounded-md w-fit p-1"
+              className="border-black border-2 bg-black text-white w-fit p-3 pl-7 pr-7"
             >
-              Valider la saisie
+              VALIDATE
             </button>
           )}
         </div>
