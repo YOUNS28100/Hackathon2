@@ -83,7 +83,7 @@ const seed = async () => {
         sub_cat_id_1: 3,
         sub_cat_id_2: 2,
         sub_cat_id_3: 13,
-        skin_id_1: 8,
+        skinId_1: 8,
       },
 
       {
@@ -98,8 +98,8 @@ const seed = async () => {
         sub_cat_id_1: 12,
         sub_cat_id_2: 14,
         sub_cat_id_3: 15,
-        skin_id_1: 2,
-        skin_id_2: 4,
+        skinId_1: 2,
+        skinId_2: 4,
       },
 
       {
@@ -113,8 +113,8 @@ const seed = async () => {
         category_id: 1,
         sub_cat_id_1: 1,
         sub_cat_id_2: 6,
-        skin_id_1: 4,
-        skin_id_2: 5,
+        skinId_1: 4,
+        skinId_2: 5,
       },
 
       {
@@ -129,9 +129,9 @@ const seed = async () => {
         category_id: 5,
         sub_cat_id_1: 15,
         sub_cat_id_2: 10,
-        skin_id_1: 1,
-        skin_id_2: 2,
-        skin_id_3: 4,
+        skinId_1: 1,
+        skinId_2: 2,
+        skinId_3: 4,
       },
 
       {
@@ -147,7 +147,7 @@ const seed = async () => {
         sub_cat_id_1: 3,
         sub_cat_id_2: 7,
         sub_cat_id_3: 8,
-        skin_id_1: 8,
+        skinId_1: 8,
       },
 
       {
@@ -162,9 +162,9 @@ const seed = async () => {
         sub_cat_id_1: 4,
         sub_cat_id_2: 10,
         sub_cat_id_3: 11,
-        skin_id_1: 5,
-        skin_id_2: 4,
-        skin_id_3: 2,
+        skinId_1: 5,
+        skinId_2: 4,
+        skinId_3: 2,
       },
 
       {
@@ -179,7 +179,7 @@ const seed = async () => {
         sub_cat_id_1: 2,
         sub_cat_id_2: 3,
         sub_cat_id_3: 4,
-        skin_id_1: 3,
+        skinId_1: 3,
       },
 
       {
@@ -195,9 +195,9 @@ const seed = async () => {
         sub_cat_id_1: 1,
         sub_cat_id_2: 6,
         sub_cat_id_3: 9,
-        skin_id_1: 2,
-        skin_id_2: 4,
-        skin_id_3: 5,
+        skinId_1: 2,
+        skinId_2: 4,
+        skinId_3: 5,
       },
 
       {
@@ -212,8 +212,8 @@ const seed = async () => {
         sub_cat_id_1: 1,
         sub_cat_id_2: 3,
         sub_cat_id_3: 4,
-        skin_id_1: 4,
-        skin_id_2: 5,
+        skinId_1: 4,
+        skinId_2: 5,
       },
 
       {
@@ -227,7 +227,7 @@ const seed = async () => {
           "https://www.loreal-paris.fr/soin/soin-par-categorie/creme-de-jour/revitalift-clinical-vitamine-c-fluide-fps-50-/OAP7231.html",
         category_id: 1,
         sub_cat_id_1: 3,
-        skin_id_1: 8,
+        skinId_1: 8,
       },
 
       {
@@ -241,7 +241,7 @@ const seed = async () => {
           "https://www.loreal-paris.fr/soin/soin-par-categorie/creme-de-jour/revitalift-filler-gel-creme-repulpant/OAP7232.html",
         category_id: 1,
         sub_cat_id_1: 3,
-        skin_id_1: 8,
+        skinId_1: 8,
       },
 
       {
@@ -255,7 +255,7 @@ const seed = async () => {
           "https://www.loreal-paris.fr/soin/soin-par-categorie/serum-et-ampoules-visage/revitalift-filler-serum-anti-rides-1.5--acide-hyaluronique-pur/OAP7043.html",
         category_id: 3,
         sub_cat_id_1: 3,
-        skin_id_1: 8,
+        skinId_1: 8,
       },
 
       {
@@ -271,8 +271,8 @@ const seed = async () => {
         sub_cat_id_1: 3,
         sub_cat_id_2: 2,
         sub_cat_id_3: 13,
-        skin_id_1: 1,
-        skin_id_2: 2,
+        skinId_1: 1,
+        skinId_2: 2,
       },
 
       {
@@ -286,7 +286,7 @@ const seed = async () => {
           "https://www.loreal-paris.fr/soin/soin-par-categorie/serum-et-ampoules-visage/age-perfect-renaissance-cellulaire-midnight-serum/OAP7161.html",
         category_id: 3,
         sub_cat_id_1: 3,
-        skin_id_1: 8,
+        skinId_1: 8,
       },
 
       {
@@ -302,7 +302,7 @@ const seed = async () => {
         sub_cat_id_1: 3,
         sub_cat_id_2: 5,
         sub_cat_id_3: 7,
-        skin_id_1: 8,
+        skinId_1: 8,
       },
     ];
 
@@ -370,7 +370,7 @@ const seed = async () => {
     product.forEach((p) => {
       queries.push(
         database.query(
-          "INSERT INTO product (name, description, price, image, product_url, category_id, sub_cat_id_1, sub_cat_id_2, sub_cat_id_3, skin_id_1, skin_id_2, skin_id_3) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+          "INSERT INTO product (name, description, price, image, product_url, category_id, sub_cat_id_1, sub_cat_id_2, sub_cat_id_3, skinId_1, skinId_2, skinId_3) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
           [
             p.name,
             p.description,
@@ -381,9 +381,9 @@ const seed = async () => {
             p.sub_cat_id_1,
             p.sub_cat_id_2,
             p.sub_cat_id_3,
-            p.skin_id_1,
-            p.skin_id_2,
-            p.skin_id_3,
+            p.skinId_1,
+            p.skinId_2,
+            p.skinId_3,
           ]
         )
       );
