@@ -16,6 +16,8 @@ const seed = async () => {
 
     // Generating Seed Data
 
+    // Optional: Truncate tables (remove existing data)
+
     // USER
     const user = [
       {
@@ -402,6 +404,7 @@ const seed = async () => {
     subCategory.forEach((sc) => {
       queries.push(
         database.query("INSERT INTO sub_category (name) VALUES (?)", [sc])
+
       );
     });
 
