@@ -11,8 +11,8 @@ CREATE TABLE user (
   password VARCHAR(255) NOT NULL,
   age INT NOT NULL,
   city VARCHAR(255) NOT NULL,
-  lat VARCHAR(255),
-  long VARCHAR(255),
+  coord_x VARCHAR(255),
+  coord_y VARCHAR(255),
   skin_id_1 INT NOT NULL,
   skin_id_2 INT,
   skin_id_3 INT
