@@ -304,7 +304,7 @@ export default function UserInformation() {
           </div>
         ) : (
           <div className="flex flex-row gap-2">
-            <p className="text-l my-2">E-mail : {updatedData.mail}</p>
+            <p className="text-l my-2">E-mail : {updatedData.email}</p>
             <button type="button" onClick={() => handleFormVisible(5)}>
               <img src={edit} alt="crayon" className="w-6" />
             </button>
@@ -376,10 +376,13 @@ export default function UserInformation() {
             </p>
           </>
         ) : (
-          <div className="flex flex-row gap-2">
-            <p className="text-l my-2">Change passwords</p>
-            <button type="button" onClick={() => handleFormVisible(6)}>
-              <img src={edit} alt="crayon" className="w-6" id="8" />
+          <div className="flex flex-row gap-2 justify-center">
+            <button
+              type="button"
+              className="border-black border-2 bg-black text-white w-fit p-3 pl-1.5 pr-1.5"
+              onClick={() => handleFormVisible(6)}
+            >
+              Change passwords
             </button>
           </div>
         )}
@@ -409,7 +412,7 @@ export default function UserInformation() {
               onClick={() => {
                 setInputsValidated(true);
               }}
-              className="border-black border-2 bg-black text-white w-fit p-3 pl-7 pr-7"
+              className="border-black border-2 bg-black text-white w-fit p-3 pl-10 pr-10"
             >
               VALIDATE
             </button>
