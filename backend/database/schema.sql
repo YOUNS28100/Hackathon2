@@ -38,7 +38,7 @@ create table product (
   sub_cat_id_1 INT  UNSIGNED NOT NULL,
   sub_cat_id_2 INT UNSIGNED,
   sub_cat_id_3 INT UNSIGNED,
-  skinId_1 INT  UNSIGNED NOT NULL,
+  skinId_1 INT UNSIGNED NOT NULL,
   skinId_2 INT UNSIGNED,
   skinId_3 INT UNSIGNED 
 );
