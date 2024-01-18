@@ -16,6 +16,7 @@ class UserManager extends AbstractManager {
       email,
       password,
       city,
+
       country,
       latitutde,
       longitude,
@@ -27,6 +28,7 @@ class UserManager extends AbstractManager {
     // Execute the SQL INSERT query to add a new user to the "user" table
     const [result] = await this.database.query(
       `insert into ${this.table} (firstname, lastname, email, password, city, country, latitutde, longitude, age, skin_id_1, skin_id_2, skin_id_3) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+
       [
         firstname,
         lastname,
