@@ -1,0 +1,25 @@
+.bm-burger-button {
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    right: 1px;
+    top: 10px;
+    margin-right: 5px;
+}
+
+/* .bm-cross-button {
+    height: 100px;
+} */
+
+.bm-cross-button {
+    background: wheat ;
+    height: 50px;
+    width: 50px;
+}
+
+.bm-item-list {
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+    
+}

@@ -1,8 +1,30 @@
+import React from "react";
+import { useNavigate, useLoaderData } from "react-router-dom";
+import PropTypes from "prop-types";
+
 export default function SkinCare() {
+  const product = useLoaderData();
+
+  const navigate = useNavigate();
+
   return (
-    <div className="h-screen bg-silverRust p-4">
-      <h1 className="text-6xl text-center font-cblight">L'Oréal</h1>
-      <p className="text-2xl leading-loose p-8 ">
+    <div className="h-screen bg-silverRust p-4 mt-32">
+      <div className="flex flex-row justify-center flex-wrap gap-4">
+        {product.map((p) => (
+          <div
+            key={p.id}
+            className="text-center w-44 flex flex-row flex-wrap p-4"
+          >
+            <img src={p.product_url} alt={p.name} />
+            <h1 className="text-l font-bold ">{p.name}</h1>
+            <button type="button" onClick={() => navigate(`/product/${p.id}`)}>
+              Détails produits
+            </button>
+          </div>
+        ))}
+      </div>
+
+      <p className="text-2xl leading-loose mt-20 p-8 ">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam rem
         placeat itaque animi! Repellat voluptatum id exercitationem beatae
         aliquid veniam vero adipisci repudiandae, culpa nostrum magni. Nostrum
@@ -23,3 +45,11 @@ export default function SkinCare() {
     </div>
   );
 }
+
+SkinCare.propTypes = {
+  products: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    product_url: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+  }).isRequired,
+};

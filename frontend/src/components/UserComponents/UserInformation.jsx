@@ -8,7 +8,7 @@ import cancel from "../../assets/cancel.png";
 
 export default function UserInformation() {
   // const { auth } = useOutletContext();
-  const { data } = useLoaderData();
+  const data = useLoaderData();
   const [updatedData, setUpdatedData] = useState(data);
   const [isUpdated, setIsUpdated] = useState(false);
   const [inputsValidated, setInputsValidated] = useState(false);
