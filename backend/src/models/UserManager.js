@@ -16,7 +16,6 @@ class UserManager extends AbstractManager {
       email,
       password,
       city,
-
       country,
       latitutde,
       longitude,
