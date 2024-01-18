@@ -18,8 +18,17 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/",
+        path: "/:id",
         element: <SkinCare />,
+        loader: async ({ params }) => {
+          const user = await axios
+            .get(`${apiUrl}/api/user/${params.id}`)
+            .then((res) => res.data);
+          const product = await axios
+            .get(`${apiUrl}/api/product/`)
+            .then((res) => res.data);
+          return { product, user };
+        },
       },
       {
         path: "/user/:id",

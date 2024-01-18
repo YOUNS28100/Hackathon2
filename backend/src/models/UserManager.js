@@ -35,6 +35,7 @@ class UserManager extends AbstractManager {
     if (skinType2 === "") {
       newSkin3 = 8;
     }
+
     // Execute the SQL INSERT query to add a new user to the "user" table
     const [result] = await this.database.query(
       `insert into ${this.table} (firstname, lastname, email, password, city, country, latitude, longitude, age, skin_id_1, skin_id_2, skin_id_3) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
@@ -46,8 +47,8 @@ class UserManager extends AbstractManager {
         password,
         city,
         country,
-        longitude,
         latitude,
+        longitude,
         Number(age),
         Number(skinType1),
         Number(newSkin2),
@@ -64,7 +65,7 @@ class UserManager extends AbstractManager {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific user by its ID
     const [rows] = await this.database.query(
-      `select user.firstname, user.lastname, user.email, user.password, user.city, user.country, user.latitude, user.longitude, user.age, skin_1.type AS skin_type_1, skin_2.type AS skin_type_2, skin_3.type AS skin_type_3 from ${this.table} LEFT JOIN skin AS skin_1 ON ${this.table}.skin_id_1=skin_1.id LEFT JOIN skin AS skin_2 ON ${this.table}.skin_id_2=skin_2.id LEFT JOIN skin AS skin_3 ON ${this.table}.skin_id_3=skin_3.id where ${this.table}.id = ?`,
+      `select user.skin_id_1, user.skin_id_2, user.skin_id_3, user.firstname, user.lastname, user.email, user.city, user.country, user.latitude, user.longitude, user.age, skin_1.type AS skin_type_1, skin_2.type AS skin_type_2, skin_3.type AS skin_type_3 from ${this.table} LEFT JOIN skin AS skin_1 ON ${this.table}.skin_id_1=skin_1.id LEFT JOIN skin AS skin_2 ON ${this.table}.skin_id_2=skin_2.id LEFT JOIN skin AS skin_3 ON ${this.table}.skin_id_3=skin_3.id where ${this.table}.id = ?`,
       [id]
     );
 
@@ -75,7 +76,7 @@ class UserManager extends AbstractManager {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all users from the "user" table
     const [rows] = await this.database.query(
-      `select user.firstname, user.lastname, user.email, user.password, user.city, user.country, user.latitude, user.longitude, user.age, skin_1.type AS skin_type_1, skin_2.type AS skin_type_2, skin_3.type AS skin_type_3 from ${this.table} LEFT JOIN skin AS skin_1 ON ${this.table}.skin_id_1=skin_1.id LEFT JOIN skin AS skin_2 ON ${this.table}.skin_id_2=skin_2.id LEFT JOIN skin AS skin_3 ON ${this.table}.skin_id_3=skin_3.id`
+      `select user.skin_id_1, user.skin_id_2, user.skin_id_3, user.firstname, user.lastname, user.email, user.city, user.country, user.latitude, user.longitude, user.age, skin_1.type AS skin_type_1, skin_2.type AS skin_type_2, skin_3.type AS skin_type_3 from ${this.table} LEFT JOIN skin AS skin_1 ON ${this.table}.skin_id_1=skin_1.id LEFT JOIN skin AS skin_2 ON ${this.table}.skin_id_2=skin_2.id LEFT JOIN skin AS skin_3 ON ${this.table}.skin_id_3=skin_3.id`
     );
 
     // Return the array of users AS
