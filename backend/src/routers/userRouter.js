@@ -6,14 +6,14 @@ const {
   browse,
   read,
   add,
-  //   edit,
-  //   destroy,
+  edit,
+  destroy,
 } = require("../controllers/userControllers");
 
 router.get("/", browse);
 router.get("/:id", read);
 router.post("/", add);
-// router.put("/:id", edit);
-// router.delete("/:id", destroy);
+router.put("/:id", edit);
+router.delete("/:id", destroy);
 
 module.exports = router;

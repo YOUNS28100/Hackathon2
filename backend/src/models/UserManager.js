@@ -37,7 +37,8 @@ class UserManager extends AbstractManager {
     }
     // Execute the SQL INSERT query to add a new user to the "user" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (firstname, lastname, email, password, city, country, coord_x, coord_y, age, skin_id_1, skin_id_2, skin_id_3) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (firstname, lastname, email, password, city, country, latitutde, longitude, age, skin_id_1, skin_id_2, skin_id_3) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+
       [
         firstname,
         lastname,
@@ -63,7 +64,7 @@ class UserManager extends AbstractManager {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific user by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `select user.firstname, user.lastname, user.email, user.password, user.city, user.country, user.latitutde, user.longitude, user.age, skin_1.type AS skin_type_1, skin_2.type AS skin_type_2, skin_3.type AS skin_type_3 from ${this.table} LEFT JOIN skin AS skin_1 ON ${this.table}.skin_id_1=skin_1.id LEFT JOIN skin AS skin_2 ON ${this.table}.skin_id_2=skin_2.id LEFT JOIN skin AS skin_3 ON ${this.table}.skin_id_3=skin_3.id where ${this.table}.id = ?`,
       [id]
     );
 
@@ -73,9 +74,11 @@ class UserManager extends AbstractManager {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all users from the "user" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database.query(
+      `select user.firstname, user.lastname, user.email, user.password, user.city, user.country, user.latitutde, user.longitude, user.age, skin_1.type AS skin_type_1, skin_2.type AS skin_type_2, skin_3.type AS skin_type_3 from ${this.table} LEFT JOIN skin AS skin_1 ON ${this.table}.skin_id_1=skin_1.id LEFT JOIN skin AS skin_2 ON ${this.table}.skin_id_2=skin_2.id LEFT JOIN skin AS skin_3 ON ${this.table}.skin_id_3=skin_3.id`
+    );
 
-    // Return the array of users
+    // Return the array of users AS
     return rows;
   }
 
