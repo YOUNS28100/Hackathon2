@@ -7,20 +7,6 @@ class CategoryManager extends AbstractManager {
     super({ table: "category" });
   }
 
-  // The C of CRUD - Create operation
-
-  async create(category) {
-    const { name } = category;
-    // Execute the SQL INSERT query to add a new category to the "category" table
-    const [result] = await this.database.query(
-      `insert into ${this.table} (name) values (?)`,
-      [name]
-    );
-
-    // Return the ID of the newly inserted category
-    return result.insertId;
-  }
-
   // The Rs of CRUD - Read operations
 
   async read(id) {
@@ -40,30 +26,6 @@ class CategoryManager extends AbstractManager {
 
     // Return the array of categorys
     return rows;
-  }
-
-  // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing category
-
-  async update(category, id) {
-    // Execute the SQL INSERT query to update the row with tie id on the "category" table
-    const result = await this.database.query(
-      `update ${this.table} set ? where id = ?`,
-      [category, id]
-    );
-
-    return result;
-  }
-
-  // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an category by its ID
-  async delete(id) {
-    const result = await this.database.query(
-      `delete from ${this.table} where id = ?`,
-      [id]
-    );
-
-    return result;
   }
 }
 
