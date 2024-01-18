@@ -404,7 +404,6 @@ const seed = async () => {
     subCategory.forEach((sc) => {
       queries.push(
         database.query("INSERT INTO sub_category (name) VALUES (?)", [sc])
-
       );
     });
 
