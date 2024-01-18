@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/:id",
+        path: "/",
         element: <SkinCare />,
         // a enlever
         loader: async () => {
