@@ -17,7 +17,7 @@ export default function BurgerMenu({ navlinks, menuOpen, setMenuOpen }) {
         onOpen={() => setMenuOpen(!menuOpen)}
         className="bg-white bg-opacity-90"
       >
-        <ul className="flex flex-col text-center ml-3 p-20 text-slate-800 text-5xl">
+        <ul className="flex flex-col text-center ml-3 justify-evenly p-20 text-slate-800 text-5xl">
           {navlinks.map((n) => (
             <li key={n.id} className="">
               <NavLink

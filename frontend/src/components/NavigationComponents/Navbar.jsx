@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logoblack from "../../assets/logo-black.png";
 import BurgerMenu from "./BurgerMenu";
 
@@ -23,10 +23,27 @@ export default function Navbar() {
     },
   ];
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const [whiteColor, setWhiteColor] = useState(false);
+  const switchColor = () => {
+    if (window.scrollY >= 80) {
+      setWhiteColor(true);
+    } else {
+      setWhiteColor(false);
+    }
+  };
+  useEffect(() => {
+    switchColor();
+    window.addEventListener("scroll", switchColor);
+  });
   return (
     <nav>
-      <nav className="bg-gradient-to-b from-transparent via-transparent to-slate-400 h-20 flex flex-row justify-center fixed top-0">
+      <nav
+        className={`${
+          whiteColor
+            ? "bg-white shadow-md shadow-stone-600"
+            : "bg-gradient-to-b from-transparent via-transparent via-85% to-stone-600 to-95%"
+        }  h-20 flex flex-row justify-center fixed top-0 transition-colors ease-in-out`}
+      >
         <nav className="mx-24 flex flex-col justify-center">
           <img alt="logo" src={logoblack} width={500} />
         </nav>
