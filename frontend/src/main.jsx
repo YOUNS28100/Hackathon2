@@ -12,6 +12,7 @@ import ChatbotPage from "./pages/ChatbotPage";
 import NotFound from "./pages/NotFound";
 import ProductsPage from "./pages/ProductsPage";
 import BasketPage from "./pages/BasketPage";
+import Login from "./components/Login/Login";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -22,14 +23,22 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <SkinCare />,
-        // a enlever
-        loader: async () => {
-          const product = await fetch(`${apiUrl}/api/product`).then((res) =>
-            res.json()
-          );
-          return product;
+        loader: async ({ params }) => {
+          const user = await axios
+            .get(`${apiUrl}/api/user/${params.id}`)
+            .then((res) => res.data);
+          const product = await axios
+            .get(`${apiUrl}/api/product/`)
+            .then((res) => res.data);
+          return { product, user };
         },
       },
+
+      {
+        path: "/login",
+        element: <Login />,
+      },
+
       {
         path: "/user/:id",
         element: <UserPage />,

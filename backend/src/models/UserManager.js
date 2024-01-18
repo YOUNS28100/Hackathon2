@@ -14,7 +14,7 @@ class UserManager extends AbstractManager {
       firstname,
       lastname,
       email,
-      password,
+      hashedPassword,
       city,
       country,
       longitude,
@@ -32,7 +32,7 @@ class UserManager extends AbstractManager {
       newSkin2 = 8;
     }
 
-    if (skinType2 === "") {
+    if (skinType3 === "") {
       newSkin3 = 8;
     }
 
@@ -44,15 +44,15 @@ class UserManager extends AbstractManager {
         firstname,
         lastname,
         email,
-        password,
+        hashedPassword,
         city,
         country,
         latitude,
         longitude,
         Number(age),
-        Number(skinType1),
-        Number(newSkin2),
-        Number(newSkin3),
+        skinType1,
+        newSkin2,
+        newSkin3,
       ]
     );
 
@@ -87,10 +87,49 @@ class UserManager extends AbstractManager {
   // TODO: Implement the update operation to modify an existing user
 
   async update(user, id) {
+    const {
+      firstname,
+      lastname,
+      email,
+      password,
+      city,
+      country,
+      longitude,
+      latitude,
+      age,
+      skinType1,
+      skinType2,
+      skinType3,
+    } = user;
+
+    let newSkin2 = skinType2;
+    let newSkin3 = skinType3;
+
+    if (skinType2 === "") {
+      newSkin2 = 8;
+    }
+
+    if (skinType3 === "") {
+      newSkin3 = 8;
+    }
     // Execute the SQL INSERT query to update the row with tie id on the "user" table
     const result = await this.database.query(
-      `update ${this.table} set ? where id = ?`,
-      [user, id]
+      `update ${this.table} set  firstname=?, lastname=?, email=?, password=?, city=?, country=?, longitude=?, latitude=?, age=?,  skin_id_1=?,  skin_id_2=?,  skin_id_3=? where id = ?`,
+      [
+        firstname,
+        lastname,
+        email,
+        password,
+        city,
+        country,
+        longitude,
+        latitude,
+        age,
+        skinType1,
+        newSkin2,
+        newSkin3,
+        id,
+      ]
     );
 
     return result;
@@ -105,6 +144,17 @@ class UserManager extends AbstractManager {
     );
 
     return result;
+  }
+
+  // AUTHENTIFICATION
+
+  async readByEmail(email) {
+    const [rows] = await this.database.query(
+      `SELECT id, email, password FROM ${this.table} WHERE email=?`,
+      [email]
+    );
+
+    return rows[0];
   }
 }
 
