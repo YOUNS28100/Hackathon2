@@ -1,24 +1,36 @@
+import { useLoaderData } from "react-router-dom";
+
 export default function SkinCare() {
+  const { product, user } = useLoaderData();
+  const products = [product];
+  const users = [user];
+
+  const filteredProduct1 = products[0].filter(
+    (s) => s.skinId_1 === user.skin_id_1
+  );
+
+  const filteredProduct2 = products[0].filter(
+    (s) => s.skinId_2 === user.skin_id_2
+  );
+
+  const filteredProduct3 = products[0].filter(
+    (s) => s.skinId_3 === user.skin_id_3
+  );
+
   return (
-    <div className="h-screen bg-silverRust p-4">
-      <p className="text-2xl leading-loose mt-20 p-8 ">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam rem
-        placeat itaque animi! Repellat voluptatum id exercitationem beatae
-        aliquid veniam vero adipisci repudiandae, culpa nostrum magni. Nostrum
-        quo ad distinctio molestias possimus, velit consequuntur iste ducimus
-        magni repellendus aliquid ratione dolorem deserunt id impedit voluptates
-        esse dignissimos quaerat veniam doloribus officiis, ab harum voluptate
-        modi. Exercitationem rem repellat eum deserunt est! Molestiae error sed
-        blanditiis commodi! Quam quis exercitationem reiciendis iusto dicta
-        dolorum nesciunt rerum ipsum autem voluptates soluta voluptate quos fuga
-        minima, quas officia hic sequi alias eum. Sapiente odit, inventore
-        quisquam mollitia, id omnis tempore ipsum magni doloribus modi rem,
-        voluptatibus et excepturi sequi ab odio fugit amet voluptas? Sapiente,
-        recusandae earum? Natus totam rem sequi at ex facere sed numquam minus
-        exercitationem, harum nostrum assumenda. Enim magni, dignissimos
-        obcaecati natus nemo fugiat quidem tenetur iste ex ipsum ut nam ad
-        quaerat praesentium blanditiis explicabo illum, tempore sunt!
-      </p>
+    <div>
+      {users && users.map((u) => <h1 key={u.id}>Welcome {u.firstname}</h1>)}
+      {filteredProduct1 &&
+        filteredProduct1.map((s) => (
+          <div>
+            <h3 key={s.id}> {s.name}</h3>
+            <img src={s.image} alt={s.name} />
+          </div>
+        ))}
+      {filteredProduct2 &&
+        filteredProduct2.map((s) => <h3 key={s.id}> {s.name}</h3>)}
+      {filteredProduct3 &&
+        filteredProduct3.map((s) => <h3 key={s.id}> {s.name}</h3>)}
     </div>
   );
 }
