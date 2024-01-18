@@ -5,14 +5,14 @@ const router = express.Router();
 const {
   browse,
   read,
-  //   add,
+  add,
   //   edit,
   //   destroy,
 } = require("../controllers/userControllers");
 
 router.get("/", browse);
 router.get("/:id", read);
-// router.post("/", add);
+router.post("/", add);
 // router.put("/:id", edit);
 // router.delete("/:id", destroy);
 

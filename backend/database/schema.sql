@@ -10,11 +10,13 @@ CREATE TABLE user (
   email VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL,
   age INT NOT NULL,
+  city VARCHAR(255) NOT NULL,
+  country VARCHAR(255) NOT NULL,
   coord_x VARCHAR(255),
   coord_y VARCHAR(255),
-  skin_id_1 INT NOT NULL,
-  skin_id_2 INT,
-  skin_id_3 INT
+  skin_id_1 INT UNSIGNED NOT NULL,
+  skin_id_2 INT UNSIGNED,
+  skin_id_3 INT UNSIGNED
 );
 
 create table category (
@@ -36,7 +38,7 @@ create table product (
   sub_cat_id_1 INT  UNSIGNED NOT NULL,
   sub_cat_id_2 INT UNSIGNED,
   sub_cat_id_3 INT UNSIGNED,
-  skinId_1 INT  UNSIGNED NOT NULL,
+  skinId_1 INT UNSIGNED NOT NULL,
   skinId_2 INT UNSIGNED,
   skinId_3 INT UNSIGNED 
 );

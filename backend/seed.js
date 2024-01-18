@@ -68,6 +68,7 @@ const seed = async () => {
       "Peau sensible",
       "Peau terne",
       "Tous types de peaux",
+      "",
     ];
 
     // PRODUCT
@@ -404,7 +405,6 @@ const seed = async () => {
     subCategory.forEach((sc) => {
       queries.push(
         database.query("INSERT INTO sub_category (name) VALUES (?)", [sc])
-
       );
     });
 

@@ -16,28 +16,41 @@ class UserManager extends AbstractManager {
       email,
       password,
       city,
-      coord_x: coordX,
-      coord_y: coordY,
+      country,
+      longitude,
+      latitude,
       age,
-      skin_id_1: skinId1,
-      skin_id_2: skinId2,
-      skin_id_3: skinId3,
+      skinType1,
+      skinType2,
+      skinType3,
     } = user;
+
+    let newSkin2 = skinType2;
+    let newSkin3 = skinType3;
+
+    if (skinType2 === "") {
+      newSkin2 = 8;
+    }
+
+    if (skinType2 === "") {
+      newSkin3 = 8;
+    }
     // Execute the SQL INSERT query to add a new user to the "user" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (firstname, lastname, email, password, city, coord_x, coord_y, age, skin_id_1, skin_id_2, skin_id_3) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (firstname, lastname, email, password, city, country, coord_x, coord_y, age, skin_id_1, skin_id_2, skin_id_3) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         firstname,
         lastname,
         email,
         password,
         city,
-        coordX,
-        coordY,
-        age,
-        skinId1,
-        skinId2,
-        skinId3,
+        country,
+        longitude,
+        latitude,
+        Number(age),
+        Number(skinType1),
+        Number(newSkin2),
+        Number(newSkin3),
       ]
     );
 
