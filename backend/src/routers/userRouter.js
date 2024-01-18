@@ -13,7 +13,7 @@ const {
 router.get("/", browse);
 router.get("/:id", read);
 router.post("/", add);
-router.put("/:id", edit);
+router.put("/", edit);
 router.delete("/:id", destroy);
 
 module.exports = router;
