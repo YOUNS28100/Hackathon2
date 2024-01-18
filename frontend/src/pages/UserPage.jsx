@@ -1,5 +1,5 @@
-import UserInformation from "../components/navigation/UserInformation";
+import UserInformation from "../components/UserComponents/UserInformation";
 
-export default function User() {
+export default function UserPage() {
   return <UserInformation />;
 }
