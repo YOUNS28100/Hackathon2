@@ -28,7 +28,12 @@ export default function Registration() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      latitude: null,
+      longitude: null,
+    },
+  });
 
   useEffect(() => {
     axios
@@ -74,9 +79,13 @@ export default function Registration() {
         latitude: lat,
         longitude: long,
       };
-      axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/user`, infos);
+      axios
+        .post(`${import.meta.env.VITE_BACKEND_URL}/api/user`, infos)
+        .then((res) => console.info(res.data));
     }
-    axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/user`, data);
+    axios
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/user`, data)
+      .then((res) => console.info(res.data));
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -164,7 +173,7 @@ export default function Registration() {
           <input
             type="email"
             name="confirmEmail"
-            {...register("confirmEmail", {
+            {...register("confirmemail", {
               required: "Vous devez confirmer votre email",
               validate: (value) =>
                 value === watch("email") || "Emails non identiques",
@@ -316,7 +325,7 @@ export default function Registration() {
           >
             <option value="">--</option>
             {skinOption.map((skin) => (
-              <option value={skin.type} key={skin.id}>
+              <option value={skin.id} key={skin.id}>
                 {skin.type}
               </option>
             ))}
@@ -339,7 +348,7 @@ export default function Registration() {
           <select name="skinType2" {...register("skinType2")}>
             <option value="">--</option>
             {skinOption.map((skin) => (
-              <option value={skin.type} key={skin.id}>
+              <option value={skin.id} key={skin.id}>
                 {skin.type}
               </option>
             ))}
@@ -357,7 +366,7 @@ export default function Registration() {
           <select name="skinType3" {...register("skinType3")}>
             <option value="">--</option>
             {skinOption.map((skin) => (
-              <option value={skin.type} key={skin.id}>
+              <option value={skin.id} key={skin.id}>
                 {skin.type}
               </option>
             ))}
