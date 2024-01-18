@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
-import logoWhite from "../../assets/logo-white.png";
+import { useState } from "react";
+import logoblack from "../../assets/logo-black.png";
+import BurgerMenu from "./BurgerMenu";
 
 export default function Navbar() {
   // remplir ce tableau pour compléter la navbar (le 1er est un exemple)
@@ -7,30 +9,40 @@ export default function Navbar() {
     {
       id: 1,
       path: "/",
-      name: "Home",
+      name: "Skincare",
     },
     {
       id: 2,
-      path: "/contact",
-      name: "Contact",
+      path: "/profile",
+      name: "Profile",
+    },
+    {
+      id: 3,
+      path: "/chatbot",
+      name: "Chatbot",
     },
   ];
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="text-4xl bg-mineShaft flex flex-row justify-around items-center p-4">
-      {/* pour le logo */}
-      <NavLink to="/">
-        <img src={logoWhite} alt="logo" className="h-16" />
-      </NavLink>
-
-      <h1>Le Nom du fabuleux Projet</h1>
-      <div className="flex flex-col gap-4">
-        {navlinks.map((n) => (
-          <NavLink to={n.path} key={n.id}>
-            {n.name}
-          </NavLink>
-        ))}
-      </div>
+    <nav>
+      <nav className="bg-gradient-to-b from-transparent via-transparent to-slate-400 h-20 flex flex-row justify-center fixed top-0">
+        <nav className="mx-24 flex flex-col justify-center">
+          <img alt="logo" src={logoblack} width={500} />
+        </nav>
+        <div className="md:flex flex-col gap-4 hidden">
+          {navlinks.map((n) => (
+            <NavLink to={n.path} key={n.id}>
+              {n.name}
+            </NavLink>
+          ))}
+        </div>
+        <BurgerMenu
+          navlinks={navlinks}
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+        />
+      </nav>
     </nav>
   );
 }
