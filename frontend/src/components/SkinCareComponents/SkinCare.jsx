@@ -1,6 +1,9 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 export default function SkinCare({ product, user, weather }) {
+  const navigate = useNavigate();
   const users = [user];
   const { current, location } = weather;
   console.info(current, location);
@@ -42,6 +45,9 @@ export default function SkinCare({ product, user, weather }) {
               {s.name}
             </h3>
             <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
+            <button type="button" onClick={() => navigate(`/product/${s.id}`)}>
+              Détails produits
+            </button>
           </div>
         ))}
       {filteredProduct2 &&
@@ -52,6 +58,9 @@ export default function SkinCare({ product, user, weather }) {
               {s.name}
             </h3>
             <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
+            <button type="button" onClick={() => navigate(`/product/${s.id}`)}>
+              Détails produits
+            </button>
           </div>
         ))}
       {filteredProduct3 &&
@@ -59,6 +68,9 @@ export default function SkinCare({ product, user, weather }) {
           <div>
             <h3 key={s.id}> {s.name}</h3>
             <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
+            <button type="button" onClick={() => navigate(`/product/${s.id}`)}>
+              Détails produits
+            </button>
           </div>
         ))}
     </div>

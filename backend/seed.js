@@ -24,7 +24,8 @@ const seed = async () => {
         firstname: "Julie",
         lastname: "Bérard",
         email: "JulieBerard@armyspy.com",
-        password: "Sheif7aezah",
+        password:
+          "$argon2id$v=19$m=19456,t=2,p=1$sQw2YvPfCXtWtwcxY8eqsw$N654LdaeLSeBV1VaNYBIdeQUDCOmwVHCaVPF0kDaYPU",
         age: 25,
         city: "Paris",
         country: "France",
@@ -36,7 +37,8 @@ const seed = async () => {
         firstname: "Bjron",
         lastname: "Mårtensson",
         email: "BjronMartensson@rhyta.com",
-        password: "Keit6oowu4b",
+        password:
+          "$argon2id$v=19$m=19456,t=2,p=1$OhGepy4vczZOnvwc4afgIw$u+xdijaigSzoL/mKc9cR7Bb5v6LTNrxesZHEDA/agoc",
         age: 52,
         city: "stockholm",
         country: "Sweden",
@@ -48,7 +50,8 @@ const seed = async () => {
         firstname: "Monica",
         lastname: "Schiavone",
         email: "MonicaSchiavone@teleworm.us",
-        password: "azieXohgh5",
+        password:
+          "$argon2id$v=19$m=19456,t=2,p=1$ANotaaeyzkW+9A7aDEAEng$lczpH3HQZzHrX7J3/4JFoZZWytyIlWWzHFLeLRm20Lw",
         age: 38,
         city: "Napoli",
         country: "Italy",

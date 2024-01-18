@@ -9,6 +9,9 @@ import SkinCarePage from "./pages/SkinCarePage";
 import UserPage from "./pages/UserPage";
 import InstructionsPage from "./pages/InstructionsPage";
 import NotFound from "./pages/NotFound";
+import ProductsPage from "./pages/ProductsPage";
+import BasketPage from "./pages/BasketPage";
+import Login from "./components/Login/Login";
 import ChatBot from "./pages/ChatBot";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
@@ -35,13 +38,34 @@ const router = createBrowserRouter([
           return { product, user, weather };
         },
       },
+
+      {
+        path: "/login",
+        element: <Login />,
+      },
+
       {
         path: "/user/:id",
         element: <UserPage />,
         loader: async ({ params }) => {
-          const user = await axios.get(`${apiUrl}/api/user/${params.id}`);
+          const user = await axios
+            .get(`${apiUrl}/api/user/${parseInt(params.id, 10)}`)
+            .then((res) => res.data);
           return user;
         },
+      },
+      {
+        path: "/product/:id",
+        element: <ProductsPage />,
+        loader: async ({ params }) => {
+          const id = parseInt(params.id, 10);
+          const product = await fetch(`${apiUrl}/api/product/${id}`);
+          return product;
+        },
+      },
+      {
+        path: "/basket",
+        element: <BasketPage />,
       },
       {
         path: "/instructions",
