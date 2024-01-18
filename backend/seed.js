@@ -16,6 +16,8 @@ const seed = async () => {
 
     // Generating Seed Data
 
+    // Optional: Truncate tables (remove existing data)
+
     // USER
     const user = [
       {

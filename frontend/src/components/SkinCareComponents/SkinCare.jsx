@@ -1,4 +1,4 @@
-export default function HomePage() {
+export default function SkinCare() {
   return (
     <div className="h-screen bg-silverRust p-4">
       <h1 className="text-6xl text-center font-cblight">L'Oréal</h1>

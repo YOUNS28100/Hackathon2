@@ -10,13 +10,11 @@ CREATE TABLE user (
   email VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL,
   age INT NOT NULL,
-  city VARCHAR(255) NOT NULL,
-  country VARCHAR(255) NOT NULL,
-  latitutde VARCHAR(255),
-  longitude VARCHAR(255),
-  skin_id_1 INT UNSIGNED NOT NULL,
-  skin_id_2 INT UNSIGNED,
-  skin_id_3 INT UNSIGNED 
+  coord_x VARCHAR(255),
+  coord_y VARCHAR(255),
+  skin_id_1 INT NOT NULL,
+  skin_id_2 INT,
+  skin_id_3 INT
 );
 
 create table category (
