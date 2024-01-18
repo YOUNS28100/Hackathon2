@@ -1,8 +1,7 @@
-export default function HomePage() {
+export default function SkinCare() {
   return (
     <div className="h-screen bg-silverRust p-4">
-      <h1 className="text-6xl text-center font-cblight">L'Oréal</h1>
-      <p className="text-2xl leading-loose p-8 ">
+      <p className="text-2xl leading-loose mt-20 p-8 ">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam rem
         placeat itaque animi! Repellat voluptatum id exercitationem beatae
         aliquid veniam vero adipisci repudiandae, culpa nostrum magni. Nostrum
