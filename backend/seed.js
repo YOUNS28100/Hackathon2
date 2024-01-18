@@ -75,7 +75,6 @@ const seed = async () => {
     ];
 
     // PRODUCT
-
     const product = [
       {
         name: "Revitalift Filler Eye Serum 2.5% Hyaluronic Acid + Caffeine",
@@ -83,7 +82,9 @@ const seed = async () => {
           "Discover our first specific serum for the eyes! Our highest concentration of Hyaluronic Acid and Caffeine to plump up all wrinkles around the eyes and reduce dark circles.",
         price: 14.99,
         image:
-          "images/REVITALIFT-FILLER-SÉRUM-YEUX-2,5%ACIDE-HYALURONIQUE+CAFÉINE.jpg",
+          "/images/REVITALIFT-FILLER-SÉRUM-YEUX-2,5%ACIDE-HYALURONIQUE+CAFÉINE.jpg",
+        imagebis:
+          "/imagesbis/REVITALIFT-FILLER-SÉRUM-YEUX-2,5%ACIDE-HYALURONIQUE+CAFÉINE.jpg",
         product_url:
           "https://www.loreal-paris.fr/soin/soin-par-categorie/serum-et-ampoules-visage/revitalift-filler-serum-yeux-2-5--acide-hyaluronique-cafeine/OAP7183.html",
         category_id: 3,
@@ -92,13 +93,13 @@ const seed = async () => {
         sub_cat_id_3: 13,
         skinId_1: 8,
       },
-
       {
         name: "Purifying scrub treatment sugars",
         description:
           "L'Oréal Paris Laboratories have selected 3 FINE SUGARS and combined them with KIWI SEEDS, to offer intense exfoliation and exceptional care in a face and lip scrub",
         price: 9.57,
         image: "/images/SUCRES-DE-SOIN-GOMMAGE-PURIFIANT.jpg",
+        imagebis: "/imagesbis/SUCRES-DE-SOIN-GOMMAGE-PURIFIANT.jpg",
         product_url:
           "https://www.loreal-paris.fr/soin/soin-par-categorie/gommage/sucres-de-soin-gommage-purifiant/OAP6516.html",
         category_id: 6,
@@ -108,28 +109,28 @@ const seed = async () => {
         skinId_1: 2,
         skinId_2: 4,
       },
-
       {
-        name: "Revitalift day",
+        name: "Revitalift Laser Sérum Nuit Rétinol Pur",
         description:
           "Revitalift Moisturizing Day Care hydrates and firms the skin. It is suitable for people aged 35 and up to 55. Reduces wrinkles, smoothes the skin's surface, firms and strengthens skin tone.",
-        price: 8.24,
-        image: "/images/REVITALIFT-JOUR.jpg",
+        price: 14.99,
+        image: "/images/Revitalift Laser Sérum Nuit Rétinol Pur.jpg",
+        imagebis: "/imagesbis/Revitalift Laser Sérum Nuit Rétinol Pur.jpg",
         product_url:
-          "https://www.loreal-paris.fr/soin/soin-par-categorie/creme-de-jour/revitalift-jour/OAP5218.html",
+          "https://www.loreal-paris.fr/soin/soin-par-categorie/serum-et-ampoules-visage/revitalift-laser-serum-nuit-retinol-pur/OAP7116.html",
         category_id: 1,
         sub_cat_id_1: 1,
         sub_cat_id_2: 6,
         skinId_1: 4,
         skinId_2: 5,
       },
-
       {
-        name: "Pure Clay Anti-imperfection Mask",
+        name: "Pure Clay imperfection Mask",
         description:
           "L'Oréal Paris Laboratories have selected 3 Pure Clays and combined them with Marine Algae extract in an ultra-melting, non-drying cream-mask texture to fight against blackheads and unclog pores, without dehydrating.",
         price: 9.71,
         image: "/images/MASQUE-ANTI-IMPERFECTIONS-ARGILE-PURE.jpg",
+        imagebis: "/imagesbis/MASQUE-ANTI-IMPERFECTIONS-ARGILE-PURE.jpg",
         product_url:
           "https://www.loreal-paris.fr/soin/soin-par-categorie/masque-et-nettoyant/masque-anti-imperfections-argile-pure/OAP6725.html",
         category_id: 5,
@@ -139,7 +140,6 @@ const seed = async () => {
         skinId_2: 2,
         skinId_3: 4,
       },
-
       {
         name: "Bright Reveal Fluide Anti-uv Spf50+ Anti-taches Niacinamide",
         description:
@@ -147,6 +147,8 @@ const seed = async () => {
         price: 19.99,
         image:
           "/images/BRIGHT-REVEAL-FLUIDE-ANTI-UV-SPF50+ANTI-TACHES-NIACINAMIDE.jpg",
+        imagebis:
+          "/imagesbis/BRIGHT-REVEAL-FLUIDE-ANTI-UV-SPF50+ANTI-TACHES-NIACINAMIDE.jpg",
         product_url:
           "https://www.loreal-paris.fr/soin/soin-par-categorie/creme-de-jour/bright-reveal-fluide-anti-uv-spf50--anti-taches-niacinamide/OAP7402.html",
         category_id: 1,
@@ -155,15 +157,15 @@ const seed = async () => {
         sub_cat_id_3: 8,
         skinId_1: 8,
       },
-
       {
-        name: "Pure Clay Detox Mask",
+        name: "Revitalift Filler Soin Jour Anti-Âge FPS50",
         description:
-          "L'Oréal Paris Laboratories have selected 3 Pure Clays and combined them with Charcoal in an ultra-melting, non-drying cream-mask texture, to detoxify the skin and reveal its radiance, without dehydrating it.",
-        price: 6.74,
-        image: "/images/Masque-Detox-Argile-Pure.jpg",
+          "Enriched with Micro-Epidermal Hyaluronic Acid, it penetrates deeper into the epidermis to plump fine lines and wrinkles.",
+        price: 13.72,
+        image: "/images/Revitalift Filler Soin Jour Anti-Âge FPS50.jpg",
+        imagebis: "/imagesbis/Revitalift Filler Soin Jour Anti-Âge FPS50.jpg",
         product_url:
-          "https://www.loreal-paris.fr/soin/soin-par-categorie/masque-et-nettoyant/masque-detox-argile-pure/OAP6532.html",
+          "https://www.loreal-paris.fr/soin/soin-par-categorie/creme-de-jour/revitalift-filler-soin-jour-anti-age-fps50/OAP7230.html",
         category_id: 5,
         sub_cat_id_1: 4,
         sub_cat_id_2: 10,
@@ -172,30 +174,30 @@ const seed = async () => {
         skinId_2: 4,
         skinId_3: 2,
       },
-
       {
-        name: "Age perfect freshness tonic",
+        name: "Age Perfect Renaissance Cellulaire Crème Contour des Yeux",
         description:
-          "Freshness Tonic for Mature Skin - Enriched with energizing Vitamin C and Vitamin B5 - Smoothes and relieves fatigue for radiant skin. Smoothes and relaxes mature skin. Cleans and strengthens the skin. Reveals comfortable and fortified skin.",
-        price: 4.87,
-        image: "/images/Age-perfect-tonique-fraîcheur.jpg",
+          "Thanks to its antioxidant complex, it protects the skin from free radicals for a smoother, brighter eye contour and reduced dark circles and puffiness.",
+        price: 11.62,
+        image: "/images/Age Perfect Renaissance Cellulaire.jpg",
+        imagebis: "/imagesbis/Age Perfect Renaissance Cellulaire.jpg",
         product_url:
-          "https://www.loreal-paris.fr/soin/soin-par-categorie/eau-micellaire-et-demaquillant/age-perfect-tonique-fraicheur/OAP3091.html",
+          "https://www.loreal-paris.fr/soin/soin-par-categorie/soin-yeux/age-perfect-renaissance-cellulaire-creme-contour-des-yeux/OAP6326.html",
         category_id: 7,
         sub_cat_id_1: 2,
         sub_cat_id_2: 3,
         sub_cat_id_3: 4,
         skinId_1: 3,
       },
-
       {
-        name: "Revitalift hyaluronic acid eye filler",
+        name: "Age Perfect Golden Age",
         description:
-          "Revitalift Filler HA Eye treatment contains the highest concentration of hyaluronic acid ever formulated in a L’Oréal Paris eye treatment.",
-        price: 14.24,
-        image: "/images/Revitalift-filler-acide-hyaluronique-yeux.jpg",
+          "Discover Golden Age Re-Fortifying Rosee Day Cream, specially formulated to reactivate and boost the natural radiance of mature skin.",
+        price: 11.62,
+        image: "/images/Age Perfect Golden Age.jpg",
+        imagebis: "/imagesbis/Age Perfect Golden Age.jpg",
         product_url:
-          "https://www.loreal-paris.fr/soin/soin-par-categorie/soin-yeux/revitalift-filler----acide-hyaluronique--yeux/OAP6436.html",
+          "https://www.loreal-paris.fr/soin/soin-par-categorie/creme-de-jour/age-perfect-golden-age-creme-de-jour-re-fortifiante/OAP6431.html",
         category_id: 4,
         sub_cat_id_1: 1,
         sub_cat_id_2: 6,
@@ -204,49 +206,32 @@ const seed = async () => {
         skinId_2: 4,
         skinId_3: 5,
       },
-
-      {
-        name: "Revitalift eyes",
-        description:
-          "Revitalift Moisturizing Eye Care works deeply to reduce wrinkles and firm the skin. It is suitable for people aged 35 and up to 55.",
-        price: 7.69,
-        image: "/images/Revitalift-yeux.jpg",
-        product_url:
-          "https://www.loreal-paris.fr/soin/soin-par-categorie/soin-yeux/revitalift-yeux/OAP5037.html",
-        category_id: 4,
-        sub_cat_id_1: 1,
-        sub_cat_id_2: 3,
-        sub_cat_id_3: 4,
-        skinId_1: 4,
-        skinId_2: 5,
-      },
-
       {
         name: "Revitalift clinical vitamine C fluide fps 50+",
         description:
           "Dermatologists recommend protecting your skin daily against UV rays to prevent all signs of aging. Revitalift Clinical Anti-UV Fluid SPF 50+ offers very high protection against UVB and long UVA rays to prevent photoinduced signs of aging: spots, wrinkles and uneven skin tone.",
         price: 14.24,
         image: "/images/Revitalift-clinical-vitamine-C-fluid-fps-50+.jpg",
+        imagebis: "/imagesbis/Revitalift-clinical-vitamine-C-fluid-fps-50+.jpg",
         product_url:
           "https://www.loreal-paris.fr/soin/soin-par-categorie/creme-de-jour/revitalift-clinical-vitamine-c-fluide-fps-50-/OAP7231.html",
         category_id: 1,
         sub_cat_id_1: 3,
         skinId_1: 8,
       },
-
       {
         name: "Revitalift filler plumping gel cream",
         description:
           "A wrinkle always starts with a fine line. The new innovative Revitalift Filler Plumping Gel-Cream fills in fine lines and helps delay their appearance. Enriched with Micro-Epidermal Hyaluronic Acid, 50x smaller than Macro Hyaluronic Acid, it penetrates deeper into the skin to plump up wrinkles and fine lines from within.",
         price: 18.74,
         image: "/images/Revitalift-filler-gel-crème-repulpant.jpg",
+        imagebis: "/imagesbis/Revitalift-filler-gel-crème-repulpant.jpg",
         product_url:
           "https://www.loreal-paris.fr/soin/soin-par-categorie/creme-de-jour/revitalift-filler-gel-creme-repulpant/OAP7232.html",
         category_id: 1,
         sub_cat_id_1: 3,
         skinId_1: 8,
       },
-
       {
         name: "Revitalift filler anti-wrinkle serum 1.5% pure hyaluronic acid",
         description:
@@ -254,13 +239,14 @@ const seed = async () => {
         price: 14.99,
         image:
           "/images/Revitalift-filler-serum-anti-rides-1.5%-acide-hyaluronique-pur.jpg",
+        imagebis:
+          "/imagesbis/Revitalift-filler-serum-anti-rides-1.5%-acide-hyaluronique-pur.jpg",
         product_url:
           "https://www.loreal-paris.fr/soin/soin-par-categorie/serum-et-ampoules-visage/revitalift-filler-serum-anti-rides-1.5--acide-hyaluronique-pur/OAP7043.html",
         category_id: 3,
         sub_cat_id_1: 3,
         skinId_1: 8,
       },
-
       {
         name: "Revitalift laser x3 triple action anti-aging day cream",
         description:
@@ -268,6 +254,8 @@ const seed = async () => {
         price: 14.24,
         image:
           "/images/Revitalift-laser-x3-creme-de-jour-anti-age-triple-action.jpg",
+        imagebis:
+          "/imagesbis/Revitalift-laser-x3-creme-de-jour-anti-age-triple-action.jpg",
         product_url:
           "https://www.loreal-paris.fr/soin/soin-par-categorie/creme-de-jour/revitalift-laser-x3-creme-de-jour-anti-age-triple-action/OAP5412.html",
         category_id: 1,
@@ -277,20 +265,20 @@ const seed = async () => {
         skinId_1: 1,
         skinId_2: 2,
       },
-
       {
         name: "Cell Renewal Anti-Aging Midnight Serum",
         description:
           "Age Perfect Cell Renewal Midnight Serum is formulated with an exclusive Antioxidant Recovery Complex that works at night when skin reaches its peak of cell renewal. Millions of new cells are revealed and skin is immediately hydrated and soft to the touch. ",
         price: 14.99,
         image: "/images/Age-perfect-renaissance-cellulaire-midnight-serum.jpg",
+        imagebis:
+          "/imagesbis/Age-perfect-renaissance-cellulaire-midnight-serum.jpg",
         product_url:
           "https://www.loreal-paris.fr/soin/soin-par-categorie/serum-et-ampoules-visage/age-perfect-renaissance-cellulaire-midnight-serum/OAP7161.html",
         category_id: 3,
         sub_cat_id_1: 3,
         skinId_1: 8,
       },
-
       {
         name: "Bright Reveal Peeling Exfoliant Anti-Taches 25% [AHA + BHA + PHA]",
         description:
@@ -298,6 +286,8 @@ const seed = async () => {
         price: 19.99,
         image:
           "/images/Bright-Reveal-Peeling-Exfoliant​-Anti-Taches-25%-[AHA+BHA+PHA].jpg",
+        imagebis:
+          "/imagesbis/Bright-Reveal-Peeling-Exfoliant​-Anti-Taches-25%-[AHA+BHA+PHA].jpg",
         product_url:
           "https://www.loreal-paris.fr/soin/soin-par-categorie/gommage/bright-reveal-peeling-exfoliant%E2%80%8B--anti-taches-25---aha-bha-pha-/OAP7401.html",
         category_id: 6,
@@ -372,12 +362,13 @@ const seed = async () => {
     product.forEach((p) => {
       queries.push(
         database.query(
-          "INSERT INTO product (name, description, price, image, product_url, category_id, sub_cat_id_1, sub_cat_id_2, sub_cat_id_3, skinId_1, skinId_2, skinId_3) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+          "INSERT INTO product (name, description, price, image, imagebis, product_url, category_id, sub_cat_id_1, sub_cat_id_2, sub_cat_id_3, skinId_1, skinId_2, skinId_3) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
           [
             p.name,
             p.description,
             p.price,
             p.image,
+            p.imagebis,
             p.product_url,
             p.category_id,
             p.sub_cat_id_1,

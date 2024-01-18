@@ -23,9 +23,11 @@ create table category (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL
 );
 
+
 create table sub_category (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL
 );
+
 
 create table product (
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -33,6 +35,7 @@ create table product (
   description TEXT NOT NULL,
   price FLOAT NOT NULL,
   image VARCHAR(255) NOT NULL,
+  imagebis VARCHAR(255) NOT NULL,
   product_url VARCHAR(255) NOT NULL,
   category_id INT  UNSIGNED NOT NULL,
   sub_cat_id_1 INT  UNSIGNED NOT NULL,

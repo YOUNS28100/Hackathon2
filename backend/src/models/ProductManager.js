@@ -15,6 +15,7 @@ class ProductManager extends AbstractManager {
       category_id: categoryId,
       price,
       image,
+      imagebis,
       product_url: productURL,
       sub_cat_1: subCat1,
       sub_cat_2: subCat2,
@@ -24,12 +25,13 @@ class ProductManager extends AbstractManager {
     } = product;
     // Execute the SQL INSERT query to add a new product to the "product" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (name, category_id, price, image, product_url, sub_cat_1, sub_cat_2, sub_cat_3, skin_type_1, skin_type_2) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (name, category_id, price, image, imagebis, product_url, sub_cat_1, sub_cat_2, sub_cat_3, skin_type_1, skin_type_2) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         name,
         categoryId,
         price,
         image,
+        imagebis,
         productURL,
         subCat1,
         subCat2,
