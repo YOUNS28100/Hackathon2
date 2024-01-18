@@ -27,5 +27,17 @@ create table sub_category (
 );
 
 create table product (
-    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, description TEXT NOT NULL, price FLOAT NOT NULL, image VARCHAR(255) NOT NULL, product_url VARCHAR(255) NOT NULL, category_id INT UNSIGNED NOT NULL, sub_cat_id_1 INT UNSIGNED NOT NULL, sub_cat_id_2 INT UNSIGNED, sub_cat_id_3 INT UNSIGNED, skinId_1 INT UNSIGNED NOT NULL, skinId_2 INT UNSIGNED, skinId_3 INT UNSIGNED
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  price FLOAT NOT NULL,
+  image VARCHAR(255) NOT NULL,
+  product_url VARCHAR(255) NOT NULL,
+  category_id INT  UNSIGNED NOT NULL,
+  sub_cat_id_1 INT  UNSIGNED NOT NULL,
+  sub_cat_id_2 INT UNSIGNED,
+  sub_cat_id_3 INT UNSIGNED,
+  skinId_1 INT UNSIGNED NOT NULL,
+  skinId_2 INT UNSIGNED,
+  skinId_3 INT UNSIGNED 
 );

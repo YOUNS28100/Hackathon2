@@ -68,6 +68,7 @@ const seed = async () => {
       "Peau sensible",
       "Peau terne",
       "Tous types de peaux",
+      "",
     ];
 
     // PRODUCT
