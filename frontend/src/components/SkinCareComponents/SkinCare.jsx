@@ -2,19 +2,27 @@ import { useLoaderData } from "react-router-dom";
 
 export default function SkinCare() {
   const { product, user } = useLoaderData();
-  const products = [product];
   const users = [user];
 
-  const filteredProduct1 = products[0].filter(
-    (s) => s.skinId_1 === user.skin_id_1
+  const filteredProduct1 = product.filter(
+    (s) =>
+      s.skinId_1 === user.skin_id_1 ||
+      s.skinId_2 === user.skin_id_1 ||
+      s.skinId_3 === user.skin_id_1
   );
 
-  const filteredProduct2 = products[0].filter(
-    (s) => s.skinId_2 === user.skin_id_2
+  const filteredProduct2 = product.filter(
+    (s) =>
+      s.skinId_1 === user.skin_id_2 ||
+      s.skinId_2 === user.skin_id_2 ||
+      s.skinId_3 === user.skin_id_2
   );
 
-  const filteredProduct3 = products[0].filter(
-    (s) => s.skinId_3 === user.skin_id_3
+  const filteredProduct3 = product.filter(
+    (s) =>
+      s.skinId_1 === user.skin_id_3 ||
+      s.skinId_2 === user.skin_id_3 ||
+      s.skinId_3 === user.skin_id_3
   );
 
   return (
@@ -28,9 +36,19 @@ export default function SkinCare() {
           </div>
         ))}
       {filteredProduct2 &&
-        filteredProduct2.map((s) => <h3 key={s.id}> {s.name}</h3>)}
+        filteredProduct2.map((s) => (
+          <div>
+            <h3 key={s.id}> {s.name}</h3>
+            <img src={s.image} alt={s.name} />
+          </div>
+        ))}
       {filteredProduct3 &&
-        filteredProduct3.map((s) => <h3 key={s.id}> {s.name}</h3>)}
+        filteredProduct3.map((s) => (
+          <div>
+            <h3 key={s.id}> {s.name}</h3>
+            <img src={s.image} alt={s.name} />
+          </div>
+        ))}
     </div>
   );
 }
