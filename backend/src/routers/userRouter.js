@@ -5,15 +5,15 @@ const router = express.Router();
 const {
   browse,
   read,
-  //   add,
-  //   edit,
-  //   destroy,
+  add,
+  edit,
+  destroy,
 } = require("../controllers/userControllers");
 
 router.get("/", browse);
 router.get("/:id", read);
-// router.post("/", add);
-// router.put("/:id", edit);
-// router.delete("/:id", destroy);
+router.post("/", add);
+router.put("/:id", edit);
+router.delete("/:id", destroy);
 
 module.exports = router;
