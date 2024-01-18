@@ -10,6 +10,7 @@ import UserPage from "./pages/UserPage";
 import InstructionsPage from "./pages/InstructionsPage";
 import ChatbotPage from "./pages/ChatbotPage";
 import NotFound from "./pages/NotFound";
+import Login from "./components/Login/Login";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -30,6 +31,12 @@ const router = createBrowserRouter([
           return { product, user };
         },
       },
+
+      {
+        path: "/login",
+        element: <Login />,
+      },
+
       {
         path: "/user/:id",
         element: <UserPage />,
