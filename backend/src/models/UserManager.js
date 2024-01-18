@@ -35,6 +35,7 @@ class UserManager extends AbstractManager {
     if (skinType2 === "") {
       newSkin3 = 8;
     }
+
     // Execute the SQL INSERT query to add a new user to the "user" table
     const [result] = await this.database.query(
       `insert into ${this.table} (firstname, lastname, email, password, city, country, latitude, longitude, age, skin_id_1, skin_id_2, skin_id_3) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
