@@ -1,5 +1,5 @@
-import Instructions from "../components/InstructionsComponents/Instructions";
+import Registration from "../components/Registration";
 
-export default function InstructionsPage() {
-  return <Instructions />;
+export default function RegistrationPage() {
+  return <Registration />;
 }

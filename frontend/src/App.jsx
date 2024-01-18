@@ -7,7 +7,9 @@ function App() {
   return (
     <div className="font-cbnormal">
       <NavBar />
-      <Outlet />
+      <main className="">
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );
