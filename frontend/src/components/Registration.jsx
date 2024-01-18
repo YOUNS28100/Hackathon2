@@ -1,25 +1,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { motion as m } from "framer-motion";
 import axios from "axios";
+import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 
 import geol from "../assets/pointeur-de-localisation.png";
 
-export default function Registration() {
-  const stepsArray = [
-    { id: 1, visible: false },
-    { id: 2, visible: false },
-    { id: 3, visible: false },
-    { id: 4, visible: false },
-    { id: 5, visible: false },
-    { id: 6, visible: false },
-    { id: 7, visible: false },
-    { id: 8, visible: false },
-  ];
-
-  const [visible, setVisible] = useState(stepsArray);
-  const [isStarted, setIsStarted] = useState(false);
+export default function Registration({ setVisible, visible }) {
   const [skinOption, setSkinOption] = useState(null);
   const [lat, setLat] = useState(null);
   const [long, setLong] = useState(null);
@@ -42,12 +30,6 @@ export default function Registration() {
       .then((res) => setSkinOption(res.data));
   });
 
-  const startForm = (id) => {
-    const arrayId = parseInt(id, 10);
-    const index = arrayId - 1;
-    setVisible(visible.toSpliced(index, 1, { id: arrayId, visible: true }));
-    setIsStarted(true);
-  };
   const handleFormVisible = (id) => {
     const arrayId = parseInt(id, 10);
     const stepPrec = arrayId - 1;
@@ -91,15 +73,6 @@ export default function Registration() {
   return (
     // ------------------------------------------------FORM START -------------------------------------------------
     <form onSubmit={handleSubmit(onSubmit)}>
-      {!isStarted ? (
-        <button
-          className="text-2xl active:text-silverRust  bg-black text-white mx-28 py-2"
-          type="button"
-          onClick={() => startForm(1)}
-        >
-          Start Now
-        </button>
-      ) : null}
       {visible.find((v) => v.id === 1 && v.visible) ? (
         // -------------------------------------------FIRST/LAST NAME -------------------------------------------------
         <m.div
@@ -108,7 +81,7 @@ export default function Registration() {
           transition={{ duration: 0.75, ease: "easeOut" }}
           className="flex flex-col align-middle"
         >
-          <div className="text-start text-3xl mr-1 mt-32 text-pretty">
+          <div className="text-start text-3xl mr-1 mt-20 text-pretty">
             To create your unique
             <br /> profile
           </div>
@@ -179,8 +152,8 @@ export default function Registration() {
           transition={{ duration: 0.75, ease: "easeOut" }}
           className="flex flex-col align-middle"
         >
-          <div className="text-start text-3xl mr-1 mt-32 text-pretty">
-            To connect and inform you
+          <div className="text-start text-3xl mr-1 mt-28 text-pretty">
+            To connect .
             <div className="text-start text-pretty mt-32 mr-5 text-xl">
               Please enter your email adress and confirm it
             </div>
@@ -240,14 +213,12 @@ export default function Registration() {
           transition={{ duration: 0.75, ease: "easeOut" }}
           className="flex flex-col align-middle"
         >
-          <div className="text-start text-3xl mr-1 mt-32 text-pretty">
-            Please enter your password
-            <br />
-            and confirm it
-            <div className="text-start text-pretty mt-20 mr-5 text-xl">
+          <div className="text-start text-3xl ml-2 mr-1 mt-24 text-pretty">
+            For your own security.
+            <div className="text-start text-pretty mt-24 mr-5 text-xl">
               <i className="text-sm">
-                Password must contain at least 8 characters, one uppercase, one
-                lowercase, one number and one special character
+                At least 8 characters, one uppercase, one lowercase, one number
+                and one special character
               </i>
             </div>
           </div>
@@ -304,12 +275,12 @@ export default function Registration() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.75, ease: "easeOut" }}
-          className="flex flex-col align-middle"
+          className="flex flex-col mx-2 align-middle"
         >
-          <div className="text-start pb-10 text-3xl mr-2 mt-32 text-pretty">
-            Help us meet your needs for each step of your life
+          <div className="text-start pb-10 text-3xl mr-2 mt-24 text-pretty">
+            We want to be there for each step of your life.
           </div>
-          <div className="text-start text-pretty mt-40 mr-5 text-xl">
+          <div className="text-start text-pretty mt-36 mr-5 text-xl">
             Please enter your age
           </div>
           <div className="flex flex-col gap-9 mx-4 mt-3">
@@ -352,8 +323,8 @@ export default function Registration() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="flex ml-2 flex-col align-middle"
         >
-          <div className="text-start text-3xl mr-1 mt-32 text-pretty">
-            And now, fot the environment data affecting your skin
+          <div className="text-start text-3xl mr-1 mt-16 text-pretty">
+            What about the air quality around you?
           </div>
           <div className="text-start text-pretty mt-14 mr-5 text-xl">
             Please enter your location
@@ -395,7 +366,7 @@ export default function Registration() {
               <img width={50} src={geol} alt="pointeur de localisation" />
               <p>
                 {" "}
-                Or just click
+                Click
                 <button
                   className="mx-2 underline-offset-1 underline"
                   type="button"
@@ -403,7 +374,7 @@ export default function Registration() {
                 >
                   <b>here</b>
                 </button>
-                for the most accurate geolocation{" "}
+                for the most accurate geolocation (optional){" "}
               </p>
             </div>
             {/* // --------------------------------------------------- NEXT STEP ------------------------------------------------- */}
@@ -426,7 +397,7 @@ export default function Registration() {
           className="flex flex-col align-middle mx-2"
         >
           <div className="text-start text-3xl mr-1 mt-32 text-pretty">
-            Great! Now tell us more about your needs
+            Now, tell us more about your needs.
             <div className="text-start text-pretty mt-32 mr-5 text-xl">
               How is your skin ?
             </div>
@@ -441,7 +412,7 @@ export default function Registration() {
             >
               <option value="">--</option>
               {skinOption.map((skin) => (
-                <option value={skin.id} key={skin.id}>
+                <option className="font-cblight" value={skin.id} key={skin.id}>
                   {skin.type}
                 </option>
               ))}
@@ -535,3 +506,7 @@ export default function Registration() {
     </form>
   );
 }
+Registration.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  setVisible: PropTypes.func.isRequired,
+};
