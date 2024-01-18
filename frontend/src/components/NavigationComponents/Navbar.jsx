@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import logoblack from "../../assets/logo-black.png";
-import logowhite from "../../assets/logo-white.png";
 import BurgerMenu from "./BurgerMenu";
 
 export default function Navbar() {
@@ -42,15 +41,11 @@ export default function Navbar() {
         className={`${
           whiteColor
             ? "bg-white shadow-md shadow-stone-600"
-            : "bg-gradient-to-b from-transparent via-transparent via-60% to-stone-600 to-95%"
+            : "bg-gradient-to-b from-transparent via-transparent via-85% to-stone-200 to-95%"
         }  h-20 flex flex-row justify-center fixed top-0 transition-colors ease-in-out`}
       >
         <nav className="mx-24 flex flex-col justify-center">
-          {whiteColor ? (
-            <img alt="logo" src={logoblack} width={500} />
-          ) : (
-            <img alt="logo" src={logowhite} width={500} />
-          )}
+          <img alt="logo" src={logoblack} width={500} />
         </nav>
         <div className="md:flex flex-col gap-4 hidden">
           {navlinks.map((n) => (

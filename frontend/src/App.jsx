@@ -4,6 +4,7 @@ import Footer from "./components/NavigationComponents/Footer";
 import "./tailwind.css";
 
 function App() {
+  // const path = useLocation().pathname;
   return (
     <div className="font-cbnormal">
       <NavBar />

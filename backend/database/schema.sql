@@ -1,5 +1,6 @@
 CREATE TABLE skin (
-    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL, type VARCHAR(150) NOT NULL
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL, 
+    type VARCHAR(150) NOT NULL
 );
 
 CREATE TABLE user (
@@ -13,9 +14,9 @@ CREATE TABLE user (
   age INT NOT NULL,
   latitude VARCHAR(255),
   longitude VARCHAR(255),
-  skin_id_1 INT NOT NULL,
-  skin_id_2 INT,
-  skin_id_3 INT
+  skin_id_1 INT UNSIGNED NOT NULL,
+  skin_id_2 INT UNSIGNED,
+  skin_id_3 INT UNSIGNED
 );
 
 create table category (

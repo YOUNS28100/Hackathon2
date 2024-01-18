@@ -1,6 +1,6 @@
 export default function SkinCare() {
   return (
-    <div className="h-screen bg-silverRust p-4">
+    <div className="h-screen bg-white p-4">
       <p className="text-2xl leading-loose mt-20 p-8 ">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam rem
         placeat itaque animi! Repellat voluptatum id exercitationem beatae
