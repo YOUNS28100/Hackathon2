@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import NavBar from "./components/navigation/Navbar";
-import Footer from "./components/navigation/Footer";
+import NavBar from "./components/NavigationComponents/Navbar";
+import Footer from "./components/NavigationComponents/Footer";
 import "./tailwind.css";
 
 function App() {

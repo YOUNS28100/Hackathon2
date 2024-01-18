@@ -1,4 +1,4 @@
-export default function HomePage() {
+export default function SkinCare() {
   return (
     <div className="h-screen bg-silverRust p-4">
       <p className="text-2xl leading-loose mt-20 p-8 ">

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import logoblack from "../../assets/logo-black.png";
-import BurgerMenu from "./BurgerMenu";
+import BurgerMenu from "../NavigationComponents/BurgerMenu";
 
 export default function Navbar() {
   // remplir ce tableau pour compléter la navbar (le 1er est un exemple)
