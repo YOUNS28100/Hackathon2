@@ -1,4 +1,6 @@
-import { useLoaderData } from "react-router-dom";
+import React from "react";
+import { NavLink, useLoaderData } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export default function SkinCare() {
   const { product, user } = useLoaderData();
@@ -33,6 +35,7 @@ export default function SkinCare() {
           <div>
             <h3 key={s.id}> {s.name}</h3>
             <img src={s.image} alt={s.name} />
+            <NavLink to={`/product/${s.id}`}>Détails produits</NavLink>
           </div>
         ))}
       {filteredProduct2 &&
@@ -40,6 +43,7 @@ export default function SkinCare() {
           <div>
             <h3 key={s.id}> {s.name}</h3>
             <img src={s.image} alt={s.name} />
+            <NavLink to={`/product/${s.id}`}>Détails produits</NavLink>
           </div>
         ))}
       {filteredProduct3 &&
@@ -47,8 +51,17 @@ export default function SkinCare() {
           <div>
             <h3 key={s.id}> {s.name}</h3>
             <img src={s.image} alt={s.name} />
+            <NavLink to={`/product/${s.id}`}>Détails produits</NavLink>
           </div>
         ))}
     </div>
   );
 }
+
+SkinCare.propTypes = {
+  products: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    product_url: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+  }).isRequired,
+};

@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import NavBar from "./components/NavigationComponents/Navbar";
 import Footer from "./components/NavigationComponents/Footer";
+import BasketContextProvider from "./context/BasketCount";
 import "./tailwind.css";
 
 function App() {
@@ -9,11 +10,11 @@ function App() {
 
   return (
     <div className="font-cbnormal">
-      <NavBar />
-      <main className="">
+      <BasketContextProvider>
+        <NavBar />
         <Outlet context={{ auth, setAuth }} />
-      </main>
-      <Footer />
+        <Footer />
+      </BasketContextProvider>
     </div>
   );
 }

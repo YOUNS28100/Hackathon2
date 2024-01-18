@@ -5,9 +5,9 @@ import UserSkinInformation from "../components/UserComponents/UserSkinInformatio
 export default function UserPage() {
   const user = useLoaderData();
   return (
-    <>
+    <div className="mt-32">
       <UserInformation />
       <UserSkinInformation user={user} />
-    </>
+    </div>
   );
 }
