@@ -1,8 +1,9 @@
-import { useLoaderData } from "react-router-dom";
+import PropTypes from "prop-types";
 
-export default function SkinCare() {
-  const { product, user } = useLoaderData();
+export default function SkinCare({ product, user, weather }) {
   const users = [user];
+  const { current, location } = weather;
+  console.info(current, location);
 
   const filteredProduct1 = product.filter(
     (s) =>
@@ -27,28 +28,44 @@ export default function SkinCare() {
 
   return (
     <div>
-      {users && users.map((u) => <h1 key={u.id}>Welcome {u.firstname}</h1>)}
+      {users &&
+        users.map((u) => (
+          <h1 className="text-2xl" key={u.id}>
+            Welcome {u.firstname}
+          </h1>
+        ))}
       {filteredProduct1 &&
         filteredProduct1.map((s) => (
           <div>
-            <h3 key={s.id}> {s.name}</h3>
-            <img src={s.image} alt={s.name} />
+            <h3 className="text-2xl" key={s.id}>
+              {" "}
+              {s.name}
+            </h3>
+            <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
           </div>
         ))}
       {filteredProduct2 &&
         filteredProduct2.map((s) => (
           <div>
-            <h3 key={s.id}> {s.name}</h3>
-            <img src={s.image} alt={s.name} />
+            <h3 className="text-2xl" key={s.id}>
+              {" "}
+              {s.name}
+            </h3>
+            <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
           </div>
         ))}
       {filteredProduct3 &&
         filteredProduct3.map((s) => (
           <div>
             <h3 key={s.id}> {s.name}</h3>
-            <img src={s.image} alt={s.name} />
+            <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
           </div>
         ))}
     </div>
   );
 }
+SkinCare.propTypes = {
+  product: PropTypes.shape.isRequired,
+  user: PropTypes.shape.isRequired,
+  weather: PropTypes.shape.isRequired,
+};
