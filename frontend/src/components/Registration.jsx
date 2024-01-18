@@ -123,7 +123,7 @@ export default function Registration() {
               },
               pattern: {
                 value: /[A-Za-z]+$/,
-                message: "Votre Nom doit contenir que des lettres",
+                message: "Votre nom doit contenir que des lettres",
               },
             })}
           />
@@ -167,7 +167,7 @@ export default function Registration() {
             {...register("confirmEmail", {
               required: "Vous devez confirmer votre email",
               validate: (value) =>
-                value === watch("mail") || "Emails non identiques",
+                value === watch("email") || "Emails non identiques",
             })}
           />
           {errors.confirmemail && (
@@ -200,7 +200,7 @@ export default function Registration() {
               pattern: {
                 value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
                 message:
-                  "Votre mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, one number et un caractère spécial",
+                  "Votre mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un nombre et un caractère spécial",
               },
             })}
           />
@@ -271,10 +271,6 @@ export default function Registration() {
             name="city"
             {...register("city", {
               required: "Ce champs est obligatoire",
-              minLength: {
-                value: 4,
-                message: "La ville doit contenir au minimum 4 caractères",
-              },
             })}
           />
           {errors.city && (
@@ -288,7 +284,7 @@ export default function Registration() {
             {...register("country", {
               required: "Ce champs est obligatoire",
               minLength: {
-                value: 4,
+                value: 3,
                 message: "Le pays doit contenir au minimum 4 caractères",
               },
             })}
@@ -338,7 +334,7 @@ export default function Registration() {
       {visible.find((v) => v.id === 7 && v.visible) ? (
         <div>
           <label htmlFor="skinType2">
-            Please select your secondary skin type (optionnal)
+            Please select your secondary skin type (optional)
           </label>
           <select name="skinType2" {...register("skinType2")}>
             <option value="">--</option>
@@ -356,7 +352,7 @@ export default function Registration() {
       {visible.find((v) => v.id === 8 && v.visible) ? (
         <div>
           <label htmlFor="skinType3">
-            Please select your principal skin type
+            Please select your tertiary skin type (optional)
           </label>
           <select name="skinType3" {...register("skinType3")}>
             <option value="">--</option>
