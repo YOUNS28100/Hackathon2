@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 export default function SkinCare({ product, user, weather }) {
   const navigate = useNavigate();
-  const users = [user];
+
   const { current, location } = weather;
   console.info(current, location);
 
@@ -31,12 +31,7 @@ export default function SkinCare({ product, user, weather }) {
 
   return (
     <div>
-      {users &&
-        users.map((u) => (
-          <h1 className="text-2xl" key={u.id}>
-            Welcome {u.firstname}
-          </h1>
-        ))}
+      {user && <h1 className="text-2xl">Welcome {user.firstname}</h1>}
       {filteredProduct1 &&
         filteredProduct1.map((s) => (
           <div>
@@ -77,7 +72,7 @@ export default function SkinCare({ product, user, weather }) {
   );
 }
 SkinCare.propTypes = {
-  product: PropTypes.shape.isRequired,
-  user: PropTypes.shape.isRequired,
-  weather: PropTypes.shape.isRequired,
+  product: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  user: PropTypes.shape().isRequired,
+  weather: PropTypes.shape().isRequired,
 };
