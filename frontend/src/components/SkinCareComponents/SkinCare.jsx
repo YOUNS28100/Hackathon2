@@ -37,7 +37,6 @@ export default function SkinCare({ product, user, weather }) {
           <div>
             <button type="button" onClick={() => navigate(`/product/${s.id}`)}>
               <h3 className="text-2xl" key={s.id}>
-                {" "}
                 {s.name}
               </h3>
               <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
@@ -47,23 +46,20 @@ export default function SkinCare({ product, user, weather }) {
       {filteredProduct2 &&
         filteredProduct2.map((s) => (
           <div>
-            <h3 className="text-2xl" key={s.id}>
-              {" "}
-              {s.name}
-            </h3>
-            <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
             <button type="button" onClick={() => navigate(`/product/${s.id}`)}>
-              See more
+              <h3 className="text-2xl" key={s.id}>
+                {s.name}
+              </h3>
+              <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
             </button>
           </div>
         ))}
       {filteredProduct3 &&
         filteredProduct3.map((s) => (
           <div>
-            <h3 key={s.id}> {s.name}</h3>
-            <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
             <button type="button" onClick={() => navigate(`/product/${s.id}`)}>
-              See more
+              <h3 key={s.id}> {s.name}</h3>
+              <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
             </button>
           </div>
         ))}
