@@ -16,18 +16,15 @@ async function OpenChat(req, res) {
   const message = JSON.stringify(req.body.prompt);
   const weatherData = req.body.weather;
   const userData = await tables.user.read(userId);
-  // console.info(weatherData);
-  // console.info(userData);
 
-  // const moderation = await openai.moderations
-  //   .create({ input: message })
-  //   .then((response) => response.results[0].flagged);
-  // if (moderation) {
-  //   res
-  //     .status(200)
-  //     .json("Sorry, your sentence was moderate, please try again.");
-  // } else {
-  if (message.includes("city" && "weather")) {
+  const moderation = await openai.moderations
+    .create({ input: message })
+    .then((response) => response.results[0].flagged);
+  if (moderation) {
+    res
+      .status(200)
+      .json("Sorry, your sentence was moderate, please try again.");
+  } else if (message.includes("city" && "weather")) {
     const completion = new ChatOpenAI({
       apiKey: process.env.OPENAI_API_KEY,
       modelName: "gpt-3.5-turbo",
@@ -99,80 +96,15 @@ async function OpenChat(req, res) {
       max_tokens: 100,
     });
 
-    // if (moderation) {
-    //   res
-    //     .status(200)
-    //     .json("Sorry, your sentence was moderate, please try again.");
-    // } else {
-    res.status(200).json(completion.choices[0].message.content);
-    console.info("answer chat", completion.choices[0].message);
-    // }
+    if (moderation) {
+      res
+        .status(200)
+        .json("Sorry, your sentence was moderate, please try again.");
+    } else {
+      res.status(200).json(completion.choices[0].message.content);
+      console.info("answer chat", completion.choices[0].message);
+    }
   }
 }
-// }
-
-// async function OpenChat(req, res) {
-//   const message = JSON.stringify(req.body.prompt);
-//   const userId = req.body.id;
-//   const weatherData = req.body.weather;
-//   const userData = await tables.user.read(userId);
-//   console.info(weatherData);
-//   console.info(userData);
-
-//   const moderation = await openai.moderations
-//     .create({ input: message })
-//     .then((response) => response.results[0].flagged);
-
-//   const completion = await openai.chat.completions.create({
-//     messages: [
-//       {
-//         role: "system",
-//         content: `You are a personal assistant called Emma and you advise an user for his skincare thanks to the famous brand called L'Oréal. You love every l'Oréal's products `,
-//       },
-//       {
-//         role: "user",
-//         name: `${userData.name}`,
-//         content: message,
-//       },
-//     ],
-//     model: "gpt-3.5-turbo-1106",
-//     temperature: 0,
-//     max_tokens: 200,
-//     tools: [
-//       {
-//         type: "function",
-//         function: {
-//           name: "getCityAndCountry",
-//           description: "Get the user's city and country",
-//           parameters: {
-//             type: "object",
-//             properties: {
-//               city: {
-//                 type: "string",
-//                 description: "This is the user's city",
-//                 enum: [`${userData.city}`],
-//               },
-//               country: {
-//                 type: "string",
-//                 description: "This is the user's country",
-//                 enum: [`${userData.country}`],
-//               },
-//             },
-//             required: ["city", "country"],
-//           },
-//         },
-//       },
-//     ],
-//   });
-
-//   if (moderation) {
-//     res
-//       .status(200)
-//       .json("Sorry, your sentence was moderate, please try again.");
-//   } else {
-//     res.status(200).json(completion.choices[0].message.content);
-//     console.info("answer chat", completion.choices[0].message.tool_calls);
-//   }
-// }
 
 module.exports = { OpenChat };

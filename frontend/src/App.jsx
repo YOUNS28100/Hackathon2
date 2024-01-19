@@ -6,7 +6,7 @@ import BasketContextProvider from "./context/BasketCount";
 import "./tailwind.css";
 
 function App() {
-  const [auth, setAuth] = useState({ id: 1, city: "Stockholm" });
+  const [auth, setAuth] = useState({ id: "", city: "" });
 
   return (
     <div className="font-cbnormal">

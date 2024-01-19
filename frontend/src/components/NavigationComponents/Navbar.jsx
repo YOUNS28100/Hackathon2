@@ -22,12 +22,12 @@ export default function Navbar({ auth, setAuth }) {
     {
       id: 3,
       path: "/basket",
-      name: "Basket",
+      name: "Cart",
     },
     {
       id: 4,
       path: "/chatbot",
-      name: "Chatbot",
+      name: "Emma",
     },
   ];
   const [menuOpen, setMenuOpen] = useState(false);

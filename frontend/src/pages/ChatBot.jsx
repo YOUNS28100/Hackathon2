@@ -13,7 +13,7 @@ export default function Chat() {
   useEffect(() => {
     if (!weatherData) {
       axios
-        .get(`${VITE_WEATHER}${VITE_WEATHER_KEY}&aqi=yes&q=${auth.city}`)
+        .get(`${VITE_WEATHER}${VITE_WEATHER_KEY}&aqi=yes&q=Stockholm`)
         .then((res) => setWeatherData(res.data));
     }
   }, []);
@@ -76,7 +76,9 @@ export default function Chat() {
       </form>
       <div className="bg-gray-700 bg-opacity-50 mt-2 p-4 border-5 rounded w-full max-w-md">
         <p className="text-black">
-          {response ? response.chat_response : "Hello, how can i help you ?"}
+          {response
+            ? response.chat_response || response
+            : "Hello, how can i help you ?"}
         </p>
       </div>
       <img src={design} alt="Design" />
