@@ -110,7 +110,7 @@ const seed = async () => {
         skinId_2: 4,
       },
       {
-        name: "Revitalift Laser Sérum Nuit Rétinol Pur",
+        name: "Revitalift Moisturizing Day Cream SPF 35 PA++ 50ml",
         description:
           "Revitalift Moisturizing Day Care hydrates and firms the skin. It is suitable for people aged 35 and up to 55. Reduces wrinkles, smoothes the skin's surface, firms and strengthens skin tone.",
         price: 14.99,
@@ -158,7 +158,7 @@ const seed = async () => {
         skinId_1: 8,
       },
       {
-        name: "Revitalift Filler Soin Jour Anti-Âge FPS50",
+        name: "Filler 1.5% Pure Hyaluronic Acid Plumping Face Serum 30ml",
         description:
           "Enriched with Micro-Epidermal Hyaluronic Acid, it penetrates deeper into the epidermis to plump fine lines and wrinkles.",
         price: 13.72,
