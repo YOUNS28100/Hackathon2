@@ -88,7 +88,7 @@ export default function UserInformation() {
   return (
     <div className="border-4 border-solid flex flex-col rounded-2xl m-4 p-4 w-fit">
       <h1 className="font-CamptonBook text-3xl font-bold mb-6">
-        Account option & registration
+        Personal Informations
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2">
         {visible.find((v) => v.id === 1 && v.visible) ? (
@@ -382,7 +382,7 @@ export default function UserInformation() {
               className="border-black border-2 bg-black text-white w-fit p-3 pl-1.5 pr-1.5"
               onClick={() => handleFormVisible(6)}
             >
-              Change passwords
+              Change your password
             </button>
           </div>
         )}

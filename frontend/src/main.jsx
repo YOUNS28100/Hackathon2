@@ -23,6 +23,10 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
+        path: "/",
+        element: <InstructionsPage />,
+      },
+      {
         path: "/:id",
         element: <SkinCarePage />,
         loader: async ({ params }) => {
@@ -43,7 +47,6 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
-
       {
         path: "/user/:id",
         element: <UserPage />,
@@ -66,10 +69,6 @@ const router = createBrowserRouter([
       {
         path: "/basket",
         element: <BasketPage />,
-      },
-      {
-        path: "/instructions",
-        element: <InstructionsPage />,
       },
       {
         path: "/chatbot",
