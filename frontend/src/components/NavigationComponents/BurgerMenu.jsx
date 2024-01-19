@@ -5,23 +5,23 @@ import { CrossIcon, CustomBurgerIcon } from "./CustomBurgerIcon";
 import "./BurgerMenu.css";
 
 export default function BurgerMenu({ navlinks, menuOpen, setMenuOpen }) {
-  const setAuth = "";
+  const setAuth = "toto";
   return (
     <div>
-      {!setAuth === "" && (
+      {setAuth !== "" && (
         <Menu
           right
           width="100%"
           customBurgerIcon={<CustomBurgerIcon />}
-          customCrossIcon={<CrossIcon />}
           noOverlay
+          customCrossIcon={<CrossIcon />}
           isOpen={menuOpen}
           onOpen={() => setMenuOpen(!menuOpen)}
-          className="bg-white bg-opacity-90 h-[600px]"
+          className="bg-white bg-opacity-90"
         >
           <ul className="flex flex-col text-start ml-3 mb-20 text-slate-800 text-5xl">
             {navlinks.map((n) => (
-              <li key={n.id} className="my-8">
+              <li key={n.id} className="my-3">
                 <NavLink
                   to={n.path}
                   onClick={() => setMenuOpen(false)}
@@ -40,7 +40,7 @@ export default function BurgerMenu({ navlinks, menuOpen, setMenuOpen }) {
                 // eslint-disable-next-line no-undef
                 navigate("/");
               }}
-              className="text-2xl mt-20 bottom-0"
+              className="text-2xl mt-20 bottom-0 font-semibold"
             >
               Deconnexion{" "}
             </button>
