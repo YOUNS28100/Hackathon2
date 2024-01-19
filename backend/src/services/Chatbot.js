@@ -1,14 +1,3 @@
-// const OpenAI = require("openai");
-
-// const client = new OpenAI({
-//   apiKey: "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",
-// });
-
-// async function OpenChat() {
-
-//   });
-// }
-
 async function getCurrentLocation() {
   return "Paris"; // Simulate lookup
 }
@@ -22,28 +11,28 @@ async function main(client, message) {
     .runTools({
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: message }],
-      tools: [
-        {
-          type: "function",
-          function: {
-            function: getCurrentLocation,
-            parameters: { type: "object", properties: {} },
-          },
-        },
-        {
-          type: "function",
-          function: {
-            function: getWeather,
-            parse: JSON.parse,
-            parameters: {
-              type: "object",
-              properties: {
-                location: { type: "string" },
-              },
-            },
-          },
-        },
-      ],
+      // tools: [
+      //   {
+      //     type: "function",
+      //     function: {
+      //       function: getCurrentLocation,
+      //       parameters: { type: "object", properties: {} },
+      //     },
+      //   },
+      //   {
+      //     type: "function",
+      //     function: {
+      //       function: getWeather,
+      //       parse: JSON.parse,
+      //       parameters: {
+      //         type: "object",
+      //         properties: {
+      //           location: { type: "string" },
+      //         },
+      //       },
+      //     },
+      //   },
+      // ],
     })
     .on("message", (messages) => console.info(messages));
 
@@ -52,7 +41,6 @@ async function main(client, message) {
 }
 
 module.exports = {
-  // OpenChat,
   getWeather,
   getCurrentLocation,
   main,

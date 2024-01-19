@@ -4,6 +4,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import geol from "../assets/pointeur-de-localisation.png";
 
@@ -11,6 +12,7 @@ export default function Registration({ setVisible, visible }) {
   const [skinOption, setSkinOption] = useState(null);
   const [lat, setLat] = useState(null);
   const [long, setLong] = useState(null);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -69,6 +71,7 @@ export default function Registration({ setVisible, visible }) {
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/api/user`, data)
       .then((res) => console.info(res.data));
+    navigate("/login");
   };
   return (
     // ------------------------------------------------FORM START -------------------------------------------------
