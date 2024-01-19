@@ -16,13 +16,14 @@ function Products({ product }) {
   };
 
   return (
-    <div className="m-8">
+    <div className="flex flex-col items-center m-8">
       <img src={product.image} alt={product.name} className="w-80" />
       <h1 className="text-3xl font-bold font-CamptonBook mb-6 mt-10">
         {product.name}
       </h1>
       <p className="text-mineShaft text-l mb-10">{product.category}</p>
       <p className="font-bold mb-10 text-xl">{product.price} €</p>
+      <p className="text-l mb-6">{product.description}</p>
       {isAdded && (
         <p className="text-green-500 text-center font-bold">
           Added to the basket!
@@ -30,14 +31,12 @@ function Products({ product }) {
       )}
       <button
         type="button"
-        className="flex flex-row justify-center bg-black text-white text-l p-3 pl-5 pr-5 m-16 ml-20"
+        className="flex flex-row justify-center bg-black text-white text-l p-3 m-6"
         onClick={handleAddToBasket}
       >
-        ADD TO BASKET
+        ADD TO CART
       </button>
-
-      <p className="text-l mb-6">{product.description}</p>
-      <p>Learn more: {product.product_url}</p>
+      <a href={product.product_url}>Learn more</a>
     </div>
   );
 }

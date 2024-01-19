@@ -56,19 +56,21 @@ export default function UserSkinInformation({ user }) {
   };
 
   return (
-    <div className="border-4 border-solid flex flex-col rounded-2xl m-4 p-4 w-fit">
-      <h1 className="font-CamptonBook text-3xl font-bold mb-6">
-        User Skin Information
+    <div className="border-4 border-solid flex flex-col rounded-2xl m-4 p-4 ">
+      <h1 className="font-CamptonBook text-3xl font-bold mb-6 text-center">
+        Your Skin information
       </h1>
-      <div>Type de peau 1 : {skinType1}</div>
-      <div>Type de peau 2 : {skinType2}</div>
-      <div>Type de peau 3 : {skinType3}</div>
+
+      <div className="mt-5 text-start"> Type 1 : {skinType1}</div>
+      <div className="mt-5"> Type 2 : {skinType2}</div>
+      <div className="mt-5"> Type 3 : {skinType3}</div>
+
       <button
         type="button"
-        className="border-black border-2 bg-black text-white w-fit p-3 pl-7 pr-7"
+        className="mx-28 py-2 text-sm font-medium tracking-wide text-white transition-colors duration-300 transform bg-black hover:bg-gray-300 focus:outline-none focus:ring focus:ring-opacity-50 mt-10"
         onClick={openModal}
       >
-        Modifier les types de peau
+        Update
       </button>
       <Modal
         isOpen={isModalVisible}
@@ -128,14 +130,14 @@ export default function UserSkinInformation({ user }) {
             className="border-black border-2 bg-black text-white w-fit p-3 pl-7 pr-6"
             onClick={editUser}
           >
-            Mettre à jour
+            Update
           </button>
           <button
             type="button"
             className="border-black border-2 bg-black text-white w-fit p-3 pl-7 pr-7"
             onClick={closeModal}
           >
-            Fermer
+            Close
           </button>
         </div>
       </Modal>

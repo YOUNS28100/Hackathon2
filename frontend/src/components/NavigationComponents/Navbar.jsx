@@ -1,20 +1,22 @@
-import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+
+import BurgerMenu from "./BurgerMenu";
 import logoblack from "../../assets/logo-black.png";
 import logowhite from "../../assets/logo-white.png";
-import BurgerMenu from "./BurgerMenu";
 
-export default function Navbar() {
+export default function Navbar({ auth, setAuth }) {
   // remplir ce tableau pour compléter la navbar (le 1er est un exemple)
   const navlinks = [
     {
       id: 1,
-      path: "/",
+      path: `/${auth.id}`,
       name: "Skincare",
     },
     {
       id: 2,
-      path: "/user/1",
+      path: `/user/${auth.id}`,
       name: "Profil",
     },
     {
@@ -30,6 +32,7 @@ export default function Navbar() {
   ];
   const [menuOpen, setMenuOpen] = useState(false);
   const [whiteColor, setWhiteColor] = useState(false);
+  const navigate = useNavigate();
   const switchColor = () => {
     if (window.scrollY >= 80) {
       setWhiteColor(true);
@@ -43,33 +46,44 @@ export default function Navbar() {
   });
   return (
     <nav>
-      <nav
-        className={`${
-          whiteColor
-            ? "bg-white shadow-md shadow-stone-600"
-            : "bg-gradient-to-b from-transparent via-transparent via-60% to-stone-600 to-95%"
-        }  h-20 flex flex-row justify-center fixed top-0 transition-colors ease-in-out`}
-      >
-        <nav className="mx-24 flex flex-col justify-center">
-          {whiteColor ? (
+      {auth.id ? (
+        <nav
+          className={`${
+            whiteColor
+              ? "bg-white shadow-md shadow-stone-600"
+              : "bg-gradient-to-b from-transparent via-transparent via-85% to-stone-200 to-95%"
+          }  h-20 flex flex-row justify-center fixed top-0 transition-colors ease-in-out`}
+        >
+          <nav className="mx-24 flex flex-col justify-center">
             <img alt="logo" src={logoblack} width={500} />
-          ) : (
-            <img alt="logo" src={logowhite} width={500} />
-          )}
+          </nav>
+          <BurgerMenu
+            auth={auth}
+            setAuth={setAuth}
+            navlinks={navlinks}
+            menuOpen={menuOpen}
+            setMenuOpen={setMenuOpen}
+          />
         </nav>
-        <div className="md:flex flex-col gap-4 hidden">
-          {navlinks.map((n) => (
-            <NavLink to={n.path} key={n.id}>
-              {n.name}
-            </NavLink>
-          ))}
-        </div>
-        <BurgerMenu
-          navlinks={navlinks}
-          menuOpen={menuOpen}
-          setMenuOpen={setMenuOpen}
-        />
-      </nav>
+      ) : (
+        <nav className="bg-black pt-8 pb-7 w-full flex justify-center flex-row fixed top-0">
+          <nav className=" flex flex-col justify-between  ">
+            <img alt="logo" src={logowhite} className="h-10" />
+          </nav>
+          <button
+            type="button"
+            onClick={() => navigate("/login")}
+            className="text-black bg-white px-3 ml-7 border border-neutral-700 "
+          >
+            Log in
+          </button>
+        </nav>
+      )}
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  auth: PropTypes.shape().isRequired,
+  setAuth: PropTypes.func.isRequired,
+};

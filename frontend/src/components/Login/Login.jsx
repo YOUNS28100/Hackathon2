@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 export default function Login() {
   const { auth, setAuth } = useOutletContext();
@@ -15,61 +16,97 @@ export default function Login() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    axios
+  const onSubmit = async (data) => {
+    await axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/api/login`, data)
       .then((res) => setAuth(res.data))
       .catch((error) => {
         setErr(error.response.data.message);
       });
-    navigate(`/${auth.id}`);
+    if (auth.id) {
+      navigate(`/${auth.id}`);
+    }
   };
 
   return (
-    <form
-      className="flex flex-col items-center text-xl gap-3 bg-orange text-beige p-6 rounded-xl m-2 w-fit border-2 border-green"
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <label htmlFor="mail">E-mail</label>
-      <input
-        className="text-black pl-2 w-64 rounded-md"
-        type="email"
-        name="mail"
-        {...register("email", { required: "E-mail is required" })}
-      />
-      {errors.mail && (
-        <p role="alert" className="bg-gray-600 text-white text-sm p-0.5">
-          {errors.mail?.message}
+    <div className="w-full max-w-sm pt-28 bg-white">
+      <div className="px-6 py-4">
+        <h3 className="mt-3 text-xl font-medium text-center">Welcome Back</h3>
+
+        <p className="text-center text-gray-500 mt-10">
+          Login or create account
         </p>
-      )}
-      <label htmlFor="password">Password</label>
-      <input
-        className="text-black pl-2 w-64 rounded-md"
-        type="password"
-        name="password"
-        {...register("password", {
-          required: "Password is required",
-        })}
-      />
-      {errors.password && (
-        <p role="alert" className="bg-gray-600 text-white text-sm p-0.5">
-          {errors.password?.message}
-        </p>
-      )}
-      {err ? (
-        <p
-          role="alert"
-          className="bg-gray-700 text-white text-md px-1 rounded-md"
+
+        <form
+          className="flex justify-center items-end flex-col text-xl gap-3 p-6 rounded-xl m-26 w-fit"
+          onSubmit={handleSubmit(onSubmit)}
         >
-          {err}
-        </p>
-      ) : null}
-      <button
-        type="submit"
-        className="bg-green text-beige text-2xl px-3 mt-5 rounded py-1 hover:text-3xl active:bg-beige active:text-green"
-      >
-        login
-      </button>
-    </form>
+          <div className="w-full mt-4">
+            <input
+              className="block w-full px-4 py-2 mt-2 border border-gray-800 rounded-md"
+              type="email"
+              placeholder="Email Address"
+              {...register("email", { required: "E-mail is required" })}
+            />
+            {errors.mail && (
+              <p role="alert" className="bg-gray-600 text-white text-sm p-0.5">
+                {errors.mail?.message}
+              </p>
+            )}
+          </div>
+
+          <div className="w-full mt-4">
+            <input
+              className="block w-full px-4 py-2 mt-2 border border-gray-800  rounded-md"
+              type="password"
+              placeholder="Password"
+              {...register("password", {
+                required: "Password is required",
+              })}
+            />
+            {errors.password && (
+              <p role="alert" className="bg-gray-600 text-white text-sm p-0.5">
+                {errors.password?.message}
+              </p>
+            )}
+            {err ? (
+              <p
+                role="alert"
+                className="bg-gray-700 text-white text-md px-1 rounded-md"
+              >
+                {err}
+              </p>
+            ) : null}
+          </div>
+
+          <div className="flex items-center justify-between mt-4">
+            <button
+              type="submit"
+              className="px-6 py-2 text-sm font-medium tracking-wide text-white  transition-colors duration-300 transform bg-black rounded-sm hover:bg-gray-300 focus:outline-none focus:ring focus:ring-opacity-50"
+            >
+              Sign In
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div className="flex items-center justify-center py-4 mt-20 text-center bg-gray-50">
+        <span className="text-sm text-gray-600">
+          Don't have an account yet?{" "}
+        </span>
+
+        <button
+          type="button"
+          onClick={() => navigate("/")}
+          className="mx-2 text-sm font-bold text-gray-500 hover:underline"
+        >
+          Register here
+        </button>
+      </div>
+    </div>
   );
 }
+
+Login.propTypes = {
+  setIsLogged: PropTypes.func.isRequired,
+};
