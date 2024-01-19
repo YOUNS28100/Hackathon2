@@ -5,7 +5,7 @@ import { CrossIcon, CustomBurgerIcon } from "./CustomBurgerIcon";
 import "./BurgerMenu.css";
 
 export default function BurgerMenu({ navlinks, menuOpen, setMenuOpen }) {
-  const setAuth = "";
+  const setAuth = "toto";
   return (
     <div>
       {setAuth !== "" && (

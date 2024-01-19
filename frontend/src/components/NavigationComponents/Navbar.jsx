@@ -40,7 +40,7 @@ export default function Navbar() {
     switchColor();
     window.addEventListener("scroll", switchColor);
   });
-  const setAuth = "";
+  const setAuth = "toto";
   return (
     <nav>
       {setAuth !== "" ? (

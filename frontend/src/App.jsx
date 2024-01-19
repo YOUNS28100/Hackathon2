@@ -9,7 +9,7 @@ function App() {
   const [auth, setAuth] = useState();
 
   return (
-    <div className="font-cbnormal bg-silverRust">
+    <div className="font-cbnormal">
       <BasketContextProvider>
         <NavBar />
         <Outlet context={{ auth, setAuth }} />
