@@ -16,7 +16,7 @@ export default function Navbar({ auth, setAuth }) {
     },
     {
       id: 2,
-      path: "/user/1",
+      path: `/user/${auth.id}`,
       name: "Profil",
     },
     {

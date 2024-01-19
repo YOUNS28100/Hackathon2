@@ -46,7 +46,7 @@ export default function BurgerMenu({
               }}
               className="text-2xl mt-20 bottom-0 font-semibold"
             >
-              Deconnexion{" "}
+              Log out{" "}
             </button>
           </ul>
         </Menu>
