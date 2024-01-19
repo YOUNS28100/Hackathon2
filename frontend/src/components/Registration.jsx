@@ -200,7 +200,7 @@ export default function Registration({ setVisible, visible }) {
               type="button"
               onClick={() => handleFormVisible(3)}
             >
-              Next step
+              Next
             </button>
           </div>
         </m.div>
@@ -264,7 +264,7 @@ export default function Registration({ setVisible, visible }) {
               type="button"
               onClick={() => handleFormVisible(4)}
             >
-              Next step
+              Next
             </button>
           </div>
         </m.div>
@@ -309,7 +309,7 @@ export default function Registration({ setVisible, visible }) {
               type="button"
               onClick={() => handleFormVisible(5)}
             >
-              Next step
+              Next
             </button>
           </div>
         </m.div>
@@ -383,7 +383,7 @@ export default function Registration({ setVisible, visible }) {
               type="button"
               onClick={() => handleFormVisible(6)}
             >
-              Next step
+              Next
             </button>
           </div>
         </m.div>
@@ -428,7 +428,7 @@ export default function Registration({ setVisible, visible }) {
               type="button"
               onClick={() => handleFormVisible(7)}
             >
-              Next step
+              Next
             </button>
           </div>
         </m.div>
@@ -466,7 +466,7 @@ export default function Registration({ setVisible, visible }) {
               type="button"
               onClick={() => handleFormVisible(8)}
             >
-              Next step
+              Next
             </button>
           </div>
         </m.div>
@@ -509,5 +509,4 @@ export default function Registration({ setVisible, visible }) {
 Registration.propTypes = {
   visible: PropTypes.bool.isRequired,
   setVisible: PropTypes.func.isRequired,
-  setIsLogged: PropTypes.func.isRequired,
 };

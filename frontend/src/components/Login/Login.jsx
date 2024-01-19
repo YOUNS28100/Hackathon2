@@ -7,7 +7,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import logo from "../../assets/logo-black.png";
 
-export default function Login({ setIsLogged }) {
+export default function Login() {
   const { auth, setAuth } = useOutletContext();
   const navigate = useNavigate();
   const [err, setErr] = useState("");
@@ -17,14 +17,16 @@ export default function Login({ setIsLogged }) {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    axios
+  const onSubmit = async (data) => {
+    await axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/api/login`, data)
       .then((res) => setAuth(res.data))
       .catch((error) => {
         setErr(error.response.data.message);
       });
-    navigate(`/${auth.id}`);
+    if (auth.id) {
+      navigate(`/${auth.id}`);
+    }
   };
 
   return (
@@ -102,7 +104,7 @@ export default function Login({ setIsLogged }) {
 
         <button
           type="button"
-          onClick={() => setIsLogged(false)}
+          onClick={() => navigate("/")}
           className="mx-2 text-sm font-bold text-gray-500 dark:text-blue-400 hover:underline"
         >
           Register

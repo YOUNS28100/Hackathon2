@@ -1,14 +1,20 @@
 import { stack as Menu } from "react-burger-menu";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { CrossIcon, CustomBurgerIcon } from "./CustomBurgerIcon";
 import "./BurgerMenu.css";
 
-export default function BurgerMenu({ navlinks, menuOpen, setMenuOpen }) {
-  const setAuth = "toto";
+export default function BurgerMenu({
+  auth,
+  setAuth,
+  navlinks,
+  menuOpen,
+  setMenuOpen,
+}) {
+  const navigate = useNavigate();
   return (
     <div>
-      {setAuth !== "" && (
+      {auth && (
         <Menu
           right
           width="100%"
@@ -35,9 +41,7 @@ export default function BurgerMenu({ navlinks, menuOpen, setMenuOpen }) {
             <button
               type="button"
               onClick={() => {
-                // eslint-disable-next-line no-undef
-                setAuth("");
-                // eslint-disable-next-line no-undef
+                setAuth({ id: "", email: "" });
                 navigate("/");
               }}
               className="text-2xl mt-20 bottom-0 font-semibold"
@@ -51,6 +55,8 @@ export default function BurgerMenu({ navlinks, menuOpen, setMenuOpen }) {
   );
 }
 BurgerMenu.propTypes = {
+  auth: PropTypes.shape.isRequired,
+  setAuth: PropTypes.func.isRequired,
   navlinks: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   menuOpen: PropTypes.bool.isRequired,
   setMenuOpen: PropTypes.func.isRequired,
