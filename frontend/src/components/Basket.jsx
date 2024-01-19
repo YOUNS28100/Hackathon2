@@ -60,35 +60,32 @@ function BasketComponent() {
         ) : (
           <>
             {basketItems.map((item) => (
-              <div
-                key={item.id}
-                className="flex flex-row justify-between gap-4"
-              >
+              <div key={item.id} className="flex flex-row ">
                 <div>
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-24 h-24 mb-8 mt-6"
+                    className="w-auto h-auto mb-8 mt-6"
                   />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col justify-center">
                   <p className="text-l mt-6"> {item.name}</p>
                   <p className="text-l"> {item.price} €</p>
-                  <div className="flex flex-row gap-2">
-                    <button
-                      type="button"
-                      className="bg-black p-1 pl-2 pr-2 text-white"
-                      onClick={() => handleIncrement(item.id)}
-                    >
-                      +
-                    </button>
-                    {item.quantity}
+                  <div className="flex flex-row mt-7 gap-2">
                     <button
                       type="button"
                       className="bg-black p-1 pl-2 pr-2 text-white"
                       onClick={() => handleDecrement(item.id)}
                     >
                       -
+                    </button>
+                    {item.quantity}
+                    <button
+                      type="button"
+                      className="bg-black p-1 pl-2 pr-2 text-white"
+                      onClick={() => handleIncrement(item.id)}
+                    >
+                      +
                     </button>
                   </div>
                 </div>
