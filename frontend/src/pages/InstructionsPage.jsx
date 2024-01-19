@@ -29,7 +29,7 @@ export default function RegistrationPage() {
   };
 
   return (
-    <div className=" pt-20 flex flex-col justify-between align-middle">
+    <div className=" mt-24 flex flex-col justify-between align-middle">
       {!isStarted ? (
         <div className="bg-black relative pb-20">
           <div>
