@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import logoblack from "../../assets/logo-black.png";
 import logowhite from "../../assets/logo-white.png";
@@ -41,35 +40,38 @@ export default function Navbar() {
     switchColor();
     window.addEventListener("scroll", switchColor);
   });
+  const setAuth = "";
   return (
     <nav>
-      <nav
-        className={`${
-          whiteColor
-            ? "bg-white shadow-md shadow-stone-600"
-            : "bg-gradient-to-b from-transparent via-transparent via-60% to-stone-600 to-95%"
-        }  h-20 flex flex-row justify-center fixed top-0 transition-colors ease-in-out`}
-      >
-        <nav className="mx-24 flex flex-col justify-center">
-          {whiteColor ? (
+      {setAuth !== "" ? (
+        <nav
+          className={`${
+            whiteColor
+              ? "bg-white shadow-md shadow-stone-600"
+              : "bg-gradient-to-b from-transparent via-transparent via-85% to-stone-200 to-95%"
+          }  h-20 flex flex-row justify-center fixed top-0 transition-colors ease-in-out`}
+        >
+          <nav className="mx-24 flex flex-col justify-center">
             <img alt="logo" src={logoblack} width={500} />
-          ) : (
-            <img alt="logo" src={logowhite} width={500} />
-          )}
+          </nav>
         </nav>
-        <div className="md:flex flex-col gap-4 hidden">
-          {navlinks.map((n) => (
-            <NavLink to={n.path} key={n.id}>
-              {n.name}
-            </NavLink>
-          ))}
+      ) : (
+        <div className="bg-black flex flex-row  fixed top-0">
+          <div className="mx-24  ">
+            <img alt="logo" src={logowhite} className="h-10" />
+          </div>
+          <button type="button" className="text-black bg-white ">
+            {" "}
+            Connexion{" "}
+          </button>
         </div>
-        <BurgerMenu
-          navlinks={navlinks}
-          menuOpen={menuOpen}
-          setMenuOpen={setMenuOpen}
-        />
-      </nav>
+      )}
+
+      <BurgerMenu
+        navlinks={navlinks}
+        menuOpen={menuOpen}
+        setMenuOpen={setMenuOpen}
+      />
     </nav>
   );
 }

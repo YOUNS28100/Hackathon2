@@ -5,33 +5,48 @@ import { CrossIcon, CustomBurgerIcon } from "./CustomBurgerIcon";
 import "./BurgerMenu.css";
 
 export default function BurgerMenu({ navlinks, menuOpen, setMenuOpen }) {
+  const setAuth = "";
   return (
     <div>
-      <Menu
-        right
-        width="100%"
-        customBurgerIcon={<CustomBurgerIcon />}
-        customCrossIcon={<CrossIcon />}
-        noOverlay
-        isOpen={menuOpen}
-        onOpen={() => setMenuOpen(!menuOpen)}
-        className="bg-white bg-opacity-90"
-      >
-        <ul className="flex flex-col text-center ml-3 justify-evenly p-20 text-slate-800 text-5xl">
-          {navlinks.map((n) => (
-            <li key={n.id} className="">
-              <NavLink
-                to={n.path}
-                onClick={() => setMenuOpen(false)}
-                className=""
-              >
-                {" "}
-                {n.name}{" "}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </Menu>
+      {!setAuth === "" && (
+        <Menu
+          right
+          width="100%"
+          customBurgerIcon={<CustomBurgerIcon />}
+          customCrossIcon={<CrossIcon />}
+          noOverlay
+          isOpen={menuOpen}
+          onOpen={() => setMenuOpen(!menuOpen)}
+          className="bg-white bg-opacity-90 h-[600px]"
+        >
+          <ul className="flex flex-col text-start ml-3 mb-20 text-slate-800 text-5xl">
+            {navlinks.map((n) => (
+              <li key={n.id} className="my-8">
+                <NavLink
+                  to={n.path}
+                  onClick={() => setMenuOpen(false)}
+                  className=""
+                >
+                  {" "}
+                  {n.name}{" "}
+                </NavLink>
+              </li>
+            ))}
+            <button
+              type="button"
+              onClick={() => {
+                // eslint-disable-next-line no-undef
+                setAuth("");
+                // eslint-disable-next-line no-undef
+                navigate("/");
+              }}
+              className="text-2xl mt-20 bottom-0"
+            >
+              Deconnexion{" "}
+            </button>
+          </ul>
+        </Menu>
+      )}
     </div>
   );
 }
