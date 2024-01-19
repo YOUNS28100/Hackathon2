@@ -56,15 +56,18 @@ export default function Navbar() {
           </nav>
         </nav>
       ) : (
-        <div className="bg-black flex flex-row  fixed top-0">
-          <div className="mx-24  ">
+        <nav className="bg-black pt-8 pb-7 w-full flex justify-center flex-row fixed top-0">
+          <nav className=" flex flex-col justify-between  ">
             <img alt="logo" src={logowhite} className="h-10" />
-          </div>
-          <button type="button" className="text-black bg-white ">
+          </nav>
+          <button
+            type="button"
+            className="text-black bg-white px-3 ml-7 border border-neutral-700 "
+          >
             {" "}
             Connexion{" "}
           </button>
-        </div>
+        </nav>
       )}
 
       <BurgerMenu
