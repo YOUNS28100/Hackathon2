@@ -509,5 +509,4 @@ export default function Registration({ setVisible, visible }) {
 Registration.propTypes = {
   visible: PropTypes.bool.isRequired,
   setVisible: PropTypes.func.isRequired,
-  setIsLogged: PropTypes.func.isRequired,
 };
