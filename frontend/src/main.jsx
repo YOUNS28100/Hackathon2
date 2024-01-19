@@ -11,8 +11,8 @@ import InstructionsPage from "./pages/InstructionsPage";
 import NotFound from "./pages/NotFound";
 import ProductsPage from "./pages/ProductsPage";
 import BasketPage from "./pages/BasketPage";
-import Login from "./components/Login/Login";
 import ChatBot from "./pages/ChatBot";
+import LoginPage from "./pages/LoginPage";
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 const weatherApi = import.meta.env.VITE_WEATHER;
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
 
       {
         path: "/login",
-        element: <Login />,
+        element: <LoginPage />,
       },
       {
         path: "/user/:id",

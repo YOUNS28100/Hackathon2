@@ -41,7 +41,7 @@ export default function SkinCare({ product, user, weather }) {
             </h3>
             <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
             <button type="button" onClick={() => navigate(`/product/${s.id}`)}>
-              Détails produits
+              More details
             </button>
           </div>
         ))}
@@ -54,7 +54,7 @@ export default function SkinCare({ product, user, weather }) {
             </h3>
             <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
             <button type="button" onClick={() => navigate(`/product/${s.id}`)}>
-              Détails produits
+              More details
             </button>
           </div>
         ))}
@@ -64,7 +64,7 @@ export default function SkinCare({ product, user, weather }) {
             <h3 key={s.id}> {s.name}</h3>
             <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
             <button type="button" onClick={() => navigate(`/product/${s.id}`)}>
-              Détails produits
+              More details
             </button>
           </div>
         ))}

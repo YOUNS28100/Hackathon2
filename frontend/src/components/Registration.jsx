@@ -2,10 +2,11 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 import geol from "../assets/pointeur-de-localisation.png";
 
-export default function Registration() {
+export default function Registration({ setIsLogged }) {
   const stepsArray = [
     { id: 1, visible: false },
     { id: 2, visible: false },
@@ -82,10 +83,12 @@ export default function Registration() {
       axios
         .post(`${import.meta.env.VITE_BACKEND_URL}/api/user`, infos)
         .then((res) => console.info(res.data));
+      setIsLogged(true);
     }
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/api/user`, data)
       .then((res) => console.info(res.data));
+    setIsLogged(true);
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -377,3 +380,7 @@ export default function Registration() {
     </form>
   );
 }
+
+Registration.propTypes = {
+  setIsLogged: PropTypes.func.isRequired,
+};
