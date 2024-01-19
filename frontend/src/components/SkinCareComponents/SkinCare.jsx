@@ -35,13 +35,12 @@ export default function SkinCare({ product, user, weather }) {
       {filteredProduct1 &&
         filteredProduct1.map((s) => (
           <div>
-            <h3 className="text-2xl" key={s.id}>
-              {" "}
-              {s.name}
-            </h3>
-            <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
             <button type="button" onClick={() => navigate(`/product/${s.id}`)}>
-              Détails produits
+              <h3 className="text-2xl" key={s.id}>
+                {" "}
+                {s.name}
+              </h3>
+              <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
             </button>
           </div>
         ))}
@@ -54,7 +53,7 @@ export default function SkinCare({ product, user, weather }) {
             </h3>
             <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
             <button type="button" onClick={() => navigate(`/product/${s.id}`)}>
-              Détails produits
+              See more
             </button>
           </div>
         ))}
@@ -64,7 +63,7 @@ export default function SkinCare({ product, user, weather }) {
             <h3 key={s.id}> {s.name}</h3>
             <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
             <button type="button" onClick={() => navigate(`/product/${s.id}`)}>
-              Détails produits
+              See more
             </button>
           </div>
         ))}
