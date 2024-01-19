@@ -13,11 +13,16 @@ export default function Navbar() {
     },
     {
       id: 2,
-      path: "/profile",
-      name: "Profile",
+      path: "/user/1",
+      name: "Profil",
     },
     {
       id: 3,
+      path: "/basket",
+      name: "Basket",
+    },
+    {
+      id: 4,
       path: "/chatbot",
       name: "Chatbot",
     },
