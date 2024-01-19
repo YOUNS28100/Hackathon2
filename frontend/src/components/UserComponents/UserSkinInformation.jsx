@@ -68,7 +68,7 @@ export default function UserSkinInformation({ user }) {
         className="border-black border-2 bg-black text-white w-fit p-3 pl-7 pr-7"
         onClick={openModal}
       >
-        Modifier les types de peau
+        Modify personal skin types
       </button>
       <Modal
         isOpen={isModalVisible}
@@ -128,14 +128,14 @@ export default function UserSkinInformation({ user }) {
             className="border-black border-2 bg-black text-white w-fit p-3 pl-7 pr-6"
             onClick={editUser}
           >
-            Mettre à jour
+            Update
           </button>
           <button
             type="button"
             className="border-black border-2 bg-black text-white w-fit p-3 pl-7 pr-7"
             onClick={closeModal}
           >
-            Fermer
+            Close
           </button>
         </div>
       </Modal>
