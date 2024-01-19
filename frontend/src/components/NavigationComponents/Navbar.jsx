@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+
+import BurgerMenu from "./BurgerMenu";
 import logoblack from "../../assets/logo-black.png";
 import logowhite from "../../assets/logo-white.png";
-import BurgerMenu from "./BurgerMenu";
 
-export default function Navbar() {
+export default function Navbar({ auth, setAuth }) {
   // remplir ce tableau pour compléter la navbar (le 1er est un exemple)
   const navlinks = [
     {
       id: 1,
-      path: "/",
+      path: `/${auth.id}`,
       name: "Skincare",
     },
     {
@@ -29,6 +32,7 @@ export default function Navbar() {
   ];
   const [menuOpen, setMenuOpen] = useState(false);
   const [whiteColor, setWhiteColor] = useState(false);
+  const navigate = useNavigate();
   const switchColor = () => {
     if (window.scrollY >= 80) {
       setWhiteColor(true);
@@ -40,10 +44,9 @@ export default function Navbar() {
     switchColor();
     window.addEventListener("scroll", switchColor);
   });
-  const setAuth = "";
   return (
     <nav>
-      {setAuth !== "" ? (
+      {auth.id ? (
         <nav
           className={`${
             whiteColor
@@ -54,6 +57,13 @@ export default function Navbar() {
           <nav className="mx-24 flex flex-col justify-center">
             <img alt="logo" src={logoblack} width={500} />
           </nav>
+          <BurgerMenu
+            auth={auth}
+            setAuth={setAuth}
+            navlinks={navlinks}
+            menuOpen={menuOpen}
+            setMenuOpen={setMenuOpen}
+          />
         </nav>
       ) : (
         <nav className="bg-black pt-8 pb-7 w-full flex justify-center flex-row fixed top-0">
@@ -62,19 +72,18 @@ export default function Navbar() {
           </nav>
           <button
             type="button"
+            onClick={() => navigate("/login")}
             className="text-black bg-white px-3 ml-7 border border-neutral-700 "
           >
-            {" "}
-            Connexion{" "}
+            Log in
           </button>
         </nav>
       )}
-
-      <BurgerMenu
-        navlinks={navlinks}
-        menuOpen={menuOpen}
-        setMenuOpen={setMenuOpen}
-      />
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  auth: PropTypes.shape().isRequired,
+  setAuth: PropTypes.func.isRequired,
+};

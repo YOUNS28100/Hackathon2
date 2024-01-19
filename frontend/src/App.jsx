@@ -6,12 +6,11 @@ import BasketContextProvider from "./context/BasketCount";
 import "./tailwind.css";
 
 function App() {
-  const [auth, setAuth] = useState();
-
+  const [auth, setAuth] = useState({ id: "", email: "" });
   return (
     <div className="font-cbnormal">
       <BasketContextProvider>
-        <NavBar />
+        <NavBar auth={auth} setAuth={setAuth} />
         <Outlet context={{ auth, setAuth }} />
         <Footer />
       </BasketContextProvider>
