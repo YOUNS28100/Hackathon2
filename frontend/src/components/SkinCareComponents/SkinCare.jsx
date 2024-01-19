@@ -7,11 +7,8 @@ export default function SkinCare({ product, user, weather }) {
   const navigate = useNavigate();
 
   const { current, location } = weather;
-  console.info(current, location);
-  console.info(current.air_quality);
 
   const [message, setMessage] = useState("");
-  console.info(message);
   useEffect(() => {
     if (current.air_quality.pm2_5 < 50 && current.air_quality.pm10 < 50) {
       setMessage("Air quality is good");
@@ -49,14 +46,16 @@ export default function SkinCare({ product, user, weather }) {
   );
 
   return (
-    <div>
+    <div className="font-cblight ">
       <div className=" flex flex-col justify-center gap-3 align-middle text-lg mt-52 mx-2">
         <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.75, ease: "easeOut", delay: 0.5 }}
         >
-          {user && <h1 className="text-5xl">Hello {user.firstname},</h1>}{" "}
+          {user && (
+            <h1 className="font-cblight text-5xl">Hello {user.firstname},</h1>
+          )}{" "}
         </m.div>
 
         <m.div
@@ -72,12 +71,12 @@ export default function SkinCare({ product, user, weather }) {
             {location.name},{location.country}
           </b>{" "}
           <br />
-          The weather is: <b>{current.condition.text}</b> <br /> {message} with{" "}
+          The weather is: {current.condition.text} <br /> {message} with{" "}
           {current.humidity}% humidity{" "}
         </m.div>
       </div>
       <m.div
-        className="mt-28 text-center text-pretty text-3xl"
+        className="mt-28 text-center font-cbnormal text-pretty text-3xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.75, ease: "easeOut", delay: 1.5 }}
@@ -87,32 +86,53 @@ export default function SkinCare({ product, user, weather }) {
 
       {filteredProduct1 &&
         filteredProduct1.map((s) => (
-          <div key={s.id} className="mt-20">
+          <m.div
+            key={s.id}
+            className="mt-28 mx-1"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 2 }}
+          >
             <button type="button" onClick={() => navigate(`/product/${s.id}`)}>
-              <h3 className="text-2xl">{s.name}</h3>
-              <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
+              <h3 className="font-cblight font-semibold text-start text-2xl mb-5">
+                {s.name}
+              </h3>
+              <img
+                src={s.imagebis}
+                className="w-screen h-auto opacity-95 shadow-lg rounded-xl"
+                alt={s.name}
+              />
             </button>
-          </div>
+          </m.div>
         ))}
       {filteredProduct2 &&
         filteredProduct2.map((s) => (
-          <div key={s.id}>
-            <button
-              type="button"
-              className="relative"
-              onClick={() => navigate(`/product/${s.id}`)}
-            >
-              <h3 className="text-2xl absolute">{s.name}</h3>
-              <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
+          <div key={s.id} className="mt-28 mx-1">
+            <button type="button" onClick={() => navigate(`/product/${s.id}`)}>
+              <h3 className="font-cblight font-semibold text-start text-2xl mb-5">
+                {s.name}
+              </h3>
+              <img
+                src={s.imagebis}
+                className="w-screen h-auto opacity-95 shadow-lg rounded-xl"
+                alt={s.name}
+              />
             </button>
           </div>
         ))}
       {filteredProduct3 &&
         filteredProduct3.map((s) => (
-          <div key={s.id}>
+          <div className="mt-28 mx-1" key={s.id}>
             <button type="button" onClick={() => navigate(`/product/${s.id}`)}>
-              <h3> {s.name}</h3>
-              <img src={s.imagebis} className="w-screen h-auto" alt={s.name} />
+              <h3 className="font-cblight font-semibold text-start text-2xl mb-5">
+                {" "}
+                {s.name}
+              </h3>
+              <img
+                src={s.imagebis}
+                className="w-screen h-auto opacity-95 shadow-lg rounded-xl"
+                alt={s.name}
+              />
             </button>
           </div>
         ))}
