@@ -17,14 +17,16 @@ export default function Login() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    axios
+  const onSubmit = async (data) => {
+    await axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/api/login`, data)
       .then((res) => setAuth(res.data))
       .catch((error) => {
         setErr(error.response.data.message);
       });
-    navigate(`/${auth.id}`);
+    if (auth.id) {
+      navigate(`/${auth.id}`);
+    }
   };
 
   return (
