@@ -11,12 +11,12 @@ const openai = new OpenAI({
 });
 
 async function OpenChat(req, res) {
-  const systemContent = `You are a personal assistant called Emma and you advise an user for his skincare thanks to the famous brand called L'Oréal. You love every l'Oréal's products `;
   const userId = req.body.id;
   const message = JSON.stringify(req.body.prompt);
   const weatherData = req.body.weather;
   const userData = await tables.user.read(userId);
 
+  const systemContent = `You are a personal assistant called Emma and you advise an user for his skincare thanks to the famous brand called L'Oréal. You love every l'Oréal's products. The city of the user is ${userData.city} and his country is ${userData.country} `;
   const moderation = await openai.moderations
     .create({ input: message })
     .then((response) => response.results[0].flagged);
@@ -29,8 +29,9 @@ async function OpenChat(req, res) {
       apiKey: process.env.OPENAI_API_KEY,
       modelName: "gpt-3.5-turbo",
       temperature: 1,
-      maxTokens: 100,
+      maxTokens: 200,
       maxRetries: 5,
+      streaming: true,
     });
     const result = await completion.invoke(
       [new SystemMessage(systemContent), new HumanMessage(message)],
