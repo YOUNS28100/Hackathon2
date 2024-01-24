@@ -1,11 +1,31 @@
-import balignon from "../assets/balignon.png";
+import React from "react";
+import { Link } from "react-router-dom";
+import errorImage from "../assets/pictures/errorImage.png";
 
-export default function NotFound() {
+function NotFound() {
   return (
-    <div className="h-screen bg-slate-300 p-4 flex flex-col gap-2 items-center">
-      <h1 className="text-6xl text-center">404 : Not found</h1>
-      <h2 className="text-4xl text-center">OOOOOOOOUUUUUUUPPPPPPPPPSSSSSS</h2>
-      <img src={balignon} alt="balignon" width={350} />
+    <div className="h-screen flex flex-col justify-center mt-10">
+      <h1 className="text-5xl font-semibold text-gray-800 text-pretty mb-4">
+        404
+        <br />
+        Page non trouvée
+      </h1>
+      <img
+        src={errorImage}
+        alt="Page Not Found"
+        className=" mt-14 mx-auto rounded-3xl mb-8 opacity-75"
+      />
+      <p className="text-xl text-black mb-8">
+        Désolé, la page que vous cherchez n'existe pas ou a été déplacée.
+      </p>
+      <Link
+        to="/"
+        className="mx-28 py-3 bg-black text-white text-sm shadow text-center"
+      >
+        Retour à l'accueil
+      </Link>
     </div>
   );
 }
+
+export default NotFound;

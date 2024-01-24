@@ -1,14 +1,20 @@
 import { Outlet } from "react-router-dom";
-import NavBar from "./components/navigation/Navbar";
-import Footer from "./components/navigation/Footer";
+import { useState } from "react";
+import NavBar from "./components/NavigationComponents/Navbar";
+import Footer from "./components/NavigationComponents/Footer";
+import BasketContextProvider from "./context/BasketCount";
 import "./tailwind.css";
 
 function App() {
+  const [auth, setAuth] = useState({ id: "", city: "" });
+
   return (
     <div className="font-cbnormal">
-      <NavBar />
-      <Outlet />
-      <Footer />
+      <BasketContextProvider>
+        <NavBar auth={auth} setAuth={setAuth} />
+        <Outlet context={{ auth, setAuth }} />
+        <Footer />
+      </BasketContextProvider>
     </div>
   );
 }
