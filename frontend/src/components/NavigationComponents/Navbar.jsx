@@ -11,12 +11,12 @@ export default function Navbar({ auth, setAuth }) {
   const navlinks = [
     {
       id: 1,
-      path: `/${auth.id}`,
+      path: `/${auth?.id}`,
       name: "Skincare",
     },
     {
       id: 2,
-      path: `/user/${auth.id}`,
+      path: `/user/${auth?.id}`,
       name: "Profil",
     },
     {
@@ -46,7 +46,7 @@ export default function Navbar({ auth, setAuth }) {
   });
   return (
     <nav>
-      {auth.id ? (
+      {auth?.id ? (
         <nav
           className={`${
             whiteColor
