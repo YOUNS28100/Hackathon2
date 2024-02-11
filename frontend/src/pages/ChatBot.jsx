@@ -1,7 +1,7 @@
 import { useOutletContext } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import design from "../assets/pictures/deco.png";
+import sendIcon from "../assets/icons8-send-24.png";
 
 export default function Chat() {
   const { auth } = useOutletContext();
@@ -42,14 +42,22 @@ export default function Chat() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-1">
-      <h1 className="text-4xl font-semibold text-gray-800 mb-8">Emma</h1>
-
+    <div className="flex flex-col justify-between min-h-screen p-1">
+      <div className="flex flex-col">
+        <h1 className="text-5xl mt-28 text-gray-800 mb-8">Emma.</h1>
+        <div className="mt-2 p-4 rounded w-full flex flex-col h-[20rem] overflow-auto shadow-[inset_0px_-11px_10px_-8px_rgba(0,0,0,0.20)]">
+          <p className="text-black text-pretty text-lg">
+            {response
+              ? response.chat_response || response
+              : "Hello, how can I help you?"}
+          </p>
+        </div>
+      </div>
       <form
         className="w-full max-w-md p-4 items-center"
         onSubmit={handleSubmit}
       >
-        <div className="mb-4">
+        <div className="mb-4 absolute bg-white bottom-6 w-11/12">
           <label
             htmlFor="chat"
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -58,30 +66,20 @@ export default function Chat() {
           </label>
           <input
             name="chat"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Enter text"
             value={promptUser}
             onChange={handlePrompt}
           />
         </div>
-        <div className="flex justify-center">
-          <button
-            className="bg-black  hover:bg-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-1/3"
-            type="submit"
-          >
-            Go
-          </button>
-        </div>
+        <button
+          className="font-bold rounded focus:outline-none focus:shadow-outline absolute bottom-12 right-5"
+          type="submit"
+        >
+          <img src={sendIcon} width={30} alt="send icon" />
+        </button>
       </form>
-      <div className="bg-gray-700 bg-opacity-50 mt-2 p-4 border-5 rounded w-full max-w-md">
-        <p className="text-black">
-          {response
-            ? response.chat_response || response
-            : "Hello, how can i help you ?"}
-        </p>
-      </div>
-      <img src={design} alt="Design" />
     </div>
   );
 }
